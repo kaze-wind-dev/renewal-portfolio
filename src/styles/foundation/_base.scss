@@ -1,0 +1,99 @@
+@use "sass:map";
+@use "variables" as *;
+@use "mixin" as mixin;
+
+/* Base
+   ----------------------------------------------------------------- */
+:root {
+  /* color */
+  @each $key, $property in $colors {
+    --color-#{$key}: #{map.get($property, "hex")};
+    --color-#{$key}-rgb: #{map.get($property, "rgb")};
+  }
+  /* fontFamily */
+  @each $key, $property in $fontFamily {
+    --font-#{$key}: #{$property};
+  }
+  /* spacing */
+  @for $i from 1 through 30 {
+    --spacing-#{$i}: #{0.25rem * $i};
+  }
+  /* fontSize */
+  @each $key, $property in $fontSize {
+    --text-#{$key}: #{$property};
+  }
+  /* leading */
+  @each $key, $property in $leading {
+    --leading-#{$key}: #{$property};
+  }
+  /* tracking */
+  @each $key, $property in $tracking {
+    --tracking-#{$key}: #{$property};
+  }
+  /* fontWeight */
+  @each $key, $property in $fontWeight {
+    --font-weight-#{$key}: #{$property};
+  }
+  --gradation-primary: #e8f4ff, #73c2fb;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: var(--color-white);
+  color: var(--color-neutral-900);
+  @include mixin.setFont(
+    $family: var(--font-primary),
+    $weight: var(--font-weight-500),
+    $tracking: var(--tracking-base),
+    $leading: var(--leading-base),
+    $size: var(--text-sm)
+  );
+  overflow-wrap: anywhere;
+  word-break: normal;
+  line-break: strict;
+  @include mixin.mq("lg") {
+    font-size: var(--text-base);
+  }
+}
+
+a:hover {
+  opacity: 0.8; /* ホバー時の透明度変更 */
+  text-decoration: none;
+}
+
+a:focus,
+a:focus-visible,
+button:focus,
+button:focus-visible{
+  border-color: var(--color-accent-darken);
+  outline-color: var(--color-accent-darken);
+}
+
+::selection {
+  color: var(--color-white);
+  background-color: var(--color-primary);
+}
+
+/* inner */
+.inner {
+  width: 90%;
+  margin-inline: auto;
+  @include mixin.mq("md") {
+    margin-inline: auto;
+    max-width: 1280px;
+  }
+}
+
+/* nopost-message */
+.nopost-message {
+  font-weight: var(--font-weight-700);
+}
+
+
+/* logo */
+.logo {
+  
+}

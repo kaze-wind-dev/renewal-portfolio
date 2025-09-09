@@ -1,0 +1,68 @@
+// variables 変数またはマップのみを定義
+@use "sass:map";
+
+// $colors
+$colors: (
+  
+);
+
+// $fontFamily
+$fontFamily: (
+
+);
+
+// $fontSize
+$fontSize: (
+  "xs": 0.75rem,
+  "sm": 0.875rem,
+  "base": 1rem,
+  "md": 1.125rem,
+  "lg": 1.25rem,
+  "xl": 1.5rem,
+  "2xl": 2rem,
+  "3xl": 2.25rem,
+  "4xl": 2.5rem,
+  "5xl": 2.75rem,
+  "6xl": 3rem,
+  "7xl": 3.5rem,
+  "8xl": 4rem,
+  "9xl": 4.75rem,
+);
+
+// $leading
+$leading: (
+  "none": 1,
+  "sm": 1.25,
+  "base": 1.5,
+  "md": 1.75,
+  "lg": 2,
+);
+
+// $tracking
+$tracking: (
+  "none": 0em,
+  "sm": 0.02em,
+  "base": 0.05em,
+  "md": 0.075em,
+  "lg": 0.1em,
+  "xl": 0.12em,
+  "2xl": 0.15em,
+);
+
+// $fontWeight
+$fontWeight: (
+  "500": 500,
+  // medium
+  "700": 700,
+  // bold
+  "900": 900,
+  // black
+);
+
+$breakpoints: (
+  "sm": "screen and (min-width: 480px)",
+  "md": "screen and (min-width: 768px)",
+  "lg": "screen and (min-width: 1024px)",
+  "xl": "screen and (min-width: 1200px)",
+  "2xl": "screen and (min-width: 1440px)",
+) !default;
