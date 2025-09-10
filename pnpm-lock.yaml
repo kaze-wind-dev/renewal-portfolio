@@ -11,6 +11,9 @@ importers:
       '@splidejs/splide':
         specifier: ^4.1.4
         version: 4.1.4
+      destyle.css:
+        specifier: ^4.0.1
+        version: 4.0.1
       gsap:
         specifier: ^3.13.0
         version: 3.13.0
@@ -773,6 +776,9 @@ packages:
   define-properties@1.2.1:
     resolution: {integrity: sha512-8QmQKqEASLd5nx0U1B1okLElbUuuttJ/AnYmRXbbbGDWh6uS208EjD4Xqq/I9wK7u0v6O08XhTWnt5XtEbR6Dg==}
     engines: {node: '>= 0.4'}
+
+  destyle.css@4.0.1:
+    resolution: {integrity: sha512-G9iyW0JfRkgdxhbWQeuLdO1KZ40nzKssHtArbSFvaU/w44G0cZ5v3u4bHY829INSu480J/fxae+lTm225mN3Vw==}
 
   detect-libc@1.0.3:
     resolution: {integrity: sha512-pGjwhsmsp4kL2RTz08wcOlGN83otlqHeD/Z5T8GXZB+/YcpQ/dgo+lbU8ZsGxV0HIvqqxo9l7mqYwyYMD9bKDg==}
@@ -2380,6 +2386,8 @@ snapshots:
       define-data-property: 1.1.4
       has-property-descriptors: 1.0.2
       object-keys: 1.1.1
+
+  destyle.css@4.0.1: {}
 
   detect-libc@1.0.3:
     optional: true
