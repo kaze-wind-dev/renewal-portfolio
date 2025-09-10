@@ -1,0 +1,46 @@
+// mixin
+@use "variables" as *;
+@use "sass:map";
+
+@mixin setFont(
+  $family: null,
+  $weight: null,
+  $tracking: null,
+  $leading: null,
+  $size: null,
+) {
+  @if ($family != null) {
+    font-family: #{$family};
+  }
+  @if ($weight != null) {
+    font-weight: #{$weight};
+  }
+  @if ($tracking != null) {
+    letter-spacing: #{$tracking};
+  }
+  @if ($leading != null) {
+    line-height: #{$leading};
+  }
+  @if ($size != null) {
+    font-size: #{$size};
+  }
+}
+// メディアクエリ
+@mixin mq($breakpoint) {
+    @media #{map.get($breakpoints, $breakpoint)} {
+        @content;
+    }
+}
+// テキストがはみ出た文の3点処理
+@mixin lineClamp($row) {
+  @if $row ==1 {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  } @else if $row >1 {
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: $row;
+  }
+}
