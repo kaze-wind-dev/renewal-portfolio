@@ -11,6 +11,15 @@
     --color-#{$key}: #{map.get($property, "hex")};
     --color-#{$key}-rgb: #{map.get($property, "rgb")};
   }
+  --color-text-base: var(--color-neutral-900);
+  --color-text-white: var(--color-white);
+  --color-text-primary: var(--color-primary);
+  --color-text-error: var(--color-error);
+  --color-border-base: var(--color-600);
+  --color-border-primary: var(--color-primary);
+  --color-border-secondary: var(--color-secondary);
+  --color-background-base: var(--color-fifth);
+  
   /* fontFamily */
   @each $key, $property in $fontFamily {
     --font-#{$key}: #{$property};
