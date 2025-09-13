@@ -79,7 +79,10 @@ $colors: (
 );
 
 // $fontFamily
-$fontFamily: ();
+$fontFamily: (
+  "primary": '"Zen Kaku Gothic New", sans-serif',
+  "secondary": '"Outfit", sans-serif',
+);
 
 // $fontSize
 $fontSize: (
