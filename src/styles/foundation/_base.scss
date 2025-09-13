@@ -1,6 +1,7 @@
 @use "sass:map";
 @use "variables" as *;
 @use "mixin" as mixin;
+@use "function" as function;
 
 /* Base
    ----------------------------------------------------------------- */
@@ -14,14 +15,48 @@
   @each $key, $property in $fontFamily {
     --font-#{$key}: #{$property};
   }
+  /* fontWeight */
+  @each $key, $property in $fontWeight {
+    --font-weight-#{$key}: #{$property};
+  }
   /* spacing */
   @for $i from 1 through 30 {
     --spacing-#{$i}: #{0.25rem * $i};
   }
   /* fontSize */
-  @each $key, $property in $fontSize {
-    --text-#{$key}: #{$property};
-  }
+  --font-size-base: 0.875rem; //14px
+  --typo-scale--3: #{function.calcTypoScale(14, -3, 1.067)}; //12px
+  --typo-scale--2: #{function.calcTypoScale(14, -2, 1.067)}; //12px
+  --typo-scale--1: #{function.calcTypoScale(14, -1, 1.067)}; //13px
+  --typo-scale-1: #{function.calcTypoScale(14, 1, 1.067)}; //15px
+  --typo-scale-2: #{function.calcTypoScale(14, 2, 1.067)}; //16px
+  --typo-scale-3: #{function.calcTypoScale(14, 3, 1.067)}; //17px
+  --typo-scale-4: #{function.calcTypoScale(14, 4, 1.067)}; //18px
+  --typo-scale-5: #{function.calcTypoScale(14, 5, 1.067)}; //19px
+  --typo-scale-6: #{function.calcTypoScale(14, 6, 1.067)}; //21px
+  --typo-scale-7: #{function.calcTypoScale(14, 7, 1.067)}; //22px
+  --typo-scale-8: #{function.calcTypoScale(14, 8, 1.067)}; //24px
+  --typo-scale-9: #{function.calcTypoScale(14, 9, 1.067)}; //25px
+  --typo-scale-10: #{function.calcTypoScale(14, 10, 1.067)}; //27px
+  --typo-scale-11: #{function.calcTypoScale(14, 11, 1.067)}; //29px
+  --typo-scale-12: #{function.calcTypoScale(14, 12, 1.067)}; //30px
+  --typo-scale-13: #{function.calcTypoScale(14, 13, 1.067)}; //33px
+  --typo-scale-14: #{function.calcTypoScale(14, 14, 1.067)}; //35px
+  --typo-scale-15: #{function.calcTypoScale(14, 15, 1.067)}; //37px
+  --typo-scale-16: #{function.calcTypoScale(14, 16, 1.067)}; //40px
+  --font-size-xm: var(--typo-scale--2);
+  --font-size-sm: var(--typo-scale--1);
+  --font-size-md: var(--typo-scale-2);
+  --font-size-lg: var(--typo-scale-4);
+  --font-size-xl: var(--typo-scale-8);
+  --font-size-2xl: var(--typo-scale-10);
+  --font-size-3xl: var(--typo-scale-11);
+  --font-size-4xl: var(--typo-scale-12);
+  --font-size-5xl: var(--typo-scale-13);
+  --font-size-6xl: var(--typo-scale-14);
+  --font-size-7xl: var(--typo-scale-15);
+  --font-size-8xl: var(--typo-scale-16);
+
   /* leading */
   @each $key, $property in $leading {
     --leading-#{$key}: #{$property};
@@ -30,13 +65,60 @@
   @each $key, $property in $tracking {
     --tracking-#{$key}: #{$property};
   }
-  /* fontWeight */
-  @each $key, $property in $fontWeight {
-    --font-weight-#{$key}: #{$property};
+  /* width */
+}
+@include mixin.mq("md") {
+  :root {
+    /* fontSize */
+    --typo-scale--3: #{function.calcTypoScale(14, -3, 1.125)}; /*10px*/
+    --typo-scale--2: #{function.calcTypoScale(14, -2, 1.125)}; /*11px*/
+    --typo-scale--1: #{function.calcTypoScale(14, -1, 1.125)}; /*12px*/
+    --typo-scale-1: #{function.calcTypoScale(14, 1, 1.125)}; /*16px*/
+    --typo-scale-2: #{function.calcTypoScale(14, 2, 1.125)}; /*18px*/
+    --typo-scale-3: #{function.calcTypoScale(14, 3, 1.125)}; /*20px*/
+    --typo-scale-4: #{function.calcTypoScale(14, 4, 1.125)}; /*22px*/
+    --typo-scale-5: #{function.calcTypoScale(14, 5, 1.125)}; /*25px*/
+    --typo-scale-6: #{function.calcTypoScale(14, 6, 1.125)}; /*28px*/
+    --typo-scale-7: #{function.calcTypoScale(14, 7, 1.125)}; /*32px*/
+    --typo-scale-8: #{function.calcTypoScale(14, 8, 1.125)}; /*36px*/
+    --typo-scale-9: #{function.calcTypoScale(14, 9, 1.125)}; /*40px*/
+    --typo-scale-10: #{function.calcTypoScale(14, 10, 1.125)}; /*45px*/
+    --typo-scale-11: #{function.calcTypoScale(14, 11, 1.125)}; /*51px*/
+    --typo-scale-12: #{function.calcTypoScale(14, 12, 1.125)}; /*58px*/
+    --typo-scale-13: #{function.calcTypoScale(14, 13, 1.125)}; /*65px*/
+    --typo-scale-14: #{function.calcTypoScale(14, 14, 1.125)}; /*73px*/
+    --typo-scale-15: #{function.calcTypoScale(14, 15, 1.125)}; /*82px*/
+    --typo-scale-16: #{function.calcTypoScale(14, 16, 1.125)}; /*92px*/
   }
-  --gradation-primary: #e8f4ff, #73c2fb;
+}
+@include mixin.mq("lg") {
+  :root {
+    /* fontSize */
+    --font-size-base: 1rem; //16px
+    --typo-scale--3: #{function.calcTypoScale(16, -3, 1.125)}; /*11px*/
+    --typo-scale--2: #{function.calcTypoScale(16, -2, 1.125)}; /*13px*/
+    --typo-scale--1: #{function.calcTypoScale(16, -1, 1.125)}; /*14px*/
+    --typo-scale-1: #{function.calcTypoScale(16, 1, 1.125)}; /*18px*/
+    --typo-scale-2: #{function.calcTypoScale(16, 2, 1.125)}; /*20px*/
+    --typo-scale-3: #{function.calcTypoScale(16, 3, 1.125)}; /*23px*/
+    --typo-scale-4: #{function.calcTypoScale(16, 4, 1.125)}; /*22px*/
+    --typo-scale-5: #{function.calcTypoScale(16, 5, 1.125)}; /*26px*/
+    --typo-scale-6: #{function.calcTypoScale(16, 6, 1.125)}; /*29px*/
+    --typo-scale-7: #{function.calcTypoScale(16, 7, 1.125)}; /*36px*/
+    --typo-scale-8: #{function.calcTypoScale(16, 8, 1.125)}; /*41px*/
+    --typo-scale-9: #{function.calcTypoScale(16, 9, 1.125)}; /*46px*/
+    --typo-scale-10: #{function.calcTypoScale(16, 10, 1.125)}; /*52px*/
+    --typo-scale-11: #{function.calcTypoScale(16, 11, 1.125)}; /*58px*/
+    --typo-scale-12: #{function.calcTypoScale(16, 12, 1.125)}; /*66px*/
+    --typo-scale-13: #{function.calcTypoScale(16, 13, 1.125)}; /*74px*/
+    --typo-scale-14: #{function.calcTypoScale(16, 14, 1.125)}; /*83px*/
+    --typo-scale-15: #{function.calcTypoScale(16, 15, 1.125)}; /*94px*/
+    --typo-scale-16: #{function.calcTypoScale(16, 16, 1.125)}; /*105px*/
+  }
 }
 
+/* Base
+   ----------------------------------------------------------------- */
 html {
   scroll-behavior: smooth;
 }
@@ -67,7 +149,7 @@ a:hover {
 a:focus,
 a:focus-visible,
 button:focus,
-button:focus-visible{
+button:focus-visible {
   border-color: var(--color-accent-darken);
   outline-color: var(--color-accent-darken);
 }
@@ -90,10 +172,4 @@ button:focus-visible{
 /* nopost-message */
 .nopost-message {
   font-weight: var(--font-weight-700);
-}
-
-
-/* logo */
-.logo {
-  
 }
