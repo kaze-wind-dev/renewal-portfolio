@@ -66,3 +66,9 @@
     roundRem($cmaxSize)
   );
 }
+
+@function calcTypoScale($base: 16, $precision: 0, $scale: 1.125) {
+  $factor: math.pow($scale, $precision);
+  $resultSize: math.round($base * $factor);
+  @return rem($resultSize);
+}
