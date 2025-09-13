@@ -1,0 +1,77 @@
+@use "sass:map";
+@use "../foundation/variables" as *;
+@use "../foundation/mixin" as mixin;
+
+/* Header
+   ----------------------------------------------------------------- */
+
+.l-header {
+  border-bottom: 1px solid var(--color-neutral-200);
+  background-color: var(--color-white);
+  position: sticky;
+  top: 0;
+  left: 0;
+  z-index: 101;
+  &__inner {
+    padding: 12px 5%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    min-height: 64px;
+    @include mixin.mq("md") {
+      padding: 10px calc(5% + 60px) 10px 5%;
+    }
+    @include mixin.mq("lg") {
+      padding: 24px 32px;
+    }
+  }
+
+  &__logo {
+    transition: 0.3s;
+    font-size: 26px;
+    @include mixin.mq("md") {
+      font-size: 30px;
+    }
+    @include mixin.mq("lg") {
+      font-size: 32px;
+    }
+    &:hover {
+      opacity: 0.7;
+    }
+  }
+  &__line {
+    display: flex;
+    gap: 24px;
+    align-items: center;
+    margin-left: auto;
+  }
+  &__nav {
+    display: none;
+    @include mixin.mq("lg") {
+      display: block;
+    }
+
+    &-list {
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+      gap: 24px;
+    }
+    &-item {
+    }
+    &-link {
+      font-weight: var(--font-weight-700);
+      transition: color 0.3s;
+      &:hover {
+        opacity: 1;
+        color: var(--color-accent-darken);
+      }
+    }
+  }
+  &__icon-list {
+    display: none;
+    @include mixin.mq("md") {
+      display: block;
+    }
+  }
+}

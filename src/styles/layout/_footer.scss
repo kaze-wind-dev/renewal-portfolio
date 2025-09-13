@@ -1,0 +1,79 @@
+@use "sass:map";
+@use "../foundation/variables" as *;
+@use "../foundation/mixin" as mixin;
+/* Footer
+   ----------------------------------------------------------------- */
+
+.l-footer {
+  border-top: 1px solid var(--color-neutral-200);
+  padding-block: 56px 24px;
+  @include mixin.mq("md") {
+    padding-block: 72px 24px;
+  }
+  &__inner {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  &__nav {
+    &-list {
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+      gap: 20px;
+      @include mixin.mq("md") {
+        gap: 24px;
+      }
+    }
+    &-link {
+      font-weight: var(--font-weight-700);
+      font-size: var(--text-sm);
+      transition: color 0.3s;
+      &:hover {
+        opacity: 1;
+        color: var(--color-accent-darken);
+      }
+      @include mixin.mq("md") {
+        font-size: var(--text-base);
+      }
+    }
+  }
+  &__icon-list {
+    margin-top: 28px;
+  }
+  &__sub-nav {
+    margin-top: 28px;
+    &-list {
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+      gap: 16px;
+      @include mixin.mq("md") {
+        gap: 20px;
+      }
+    }
+    &-link {
+      font-weight: var(--font-weight-700);
+      transition: color 0.3s;
+      color: var(--color-neutral-900);
+      border-bottom: 1px solid var(--color-neutral-900);
+      transition: 0.3s;
+      font-size: 0.75rem;
+      &:hover {
+        opacity: 1;
+        color: var(--color-accent-darken);
+        border-color: var(--color-primary);
+      }
+      @include mixin.mq("md") {
+        font-size: var(--text-sm);
+      }
+    }
+  }
+  &__copyright {
+    margin-top: 16px;
+    text-align: center;
+    > small {
+      font-size: 0.75rem;
+    }
+  }
+}
