@@ -1,0 +1,20 @@
+@use "@/styles/foundation/mixin" as mixin;
+
+/* cards container
+   ----------------------------------------------------------------- */
+.c-cards-container {
+  display: grid;
+  gap: var(--spacing-7);
+  grid-template-columns:minmax(0, 1fr);
+  
+  @include mixin.mq("sm") {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+  @include mixin.mq("md") {
+    gap: 30px;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+  @include mixin.mq("lg") {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+}
