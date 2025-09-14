@@ -1,0 +1,98 @@
+@use "@/styles/foundation/mixin" as mixin;
+@use "@/styles/foundation/function" as function;
+/* topHero
+   ----------------------------------------------------------------- */
+.p-topHero {
+  position: relative;
+  z-index: 1;
+  background: url("/images/hero_bg.svg") no-repeat bottom right /
+    min(556px, function.percent(556, 960));
+  padding-block: 84px;
+  @include mixin.mq("md") {
+    padding-block: 105px;
+    background: url("/images/hero_bg.svg") no-repeat bottom right /
+   auto;
+  }
+  &__inner {
+    display: grid;
+    padding-left: 3%;
+    @include mixin.mq("md") {
+      padding-left: 0;
+    }
+  }
+  &__en-text {
+    font-family: var(--font-secondary);
+    font-weight: var(--font-weight-700);
+    font-size: var(--typo-scale-16);
+    letter-spacing: var(--tracking-none);
+    line-height: var(--leading-sm);
+    margin-bottom: var(--typo-scale-12);
+    order: 1;
+    @include mixin.mq("md") {
+      font-size: var(--typo-scale-13);
+    }
+  }
+  &__heading {
+    order: 2;
+    font-weight: var(--font-weight-700);
+    letter-spacing: var(--tracking-base);
+    line-height: var(--leading-lg);
+    font-size: var(--typo-scale-5);
+  }
+  
+  &__scroll-guide {
+    position: absolute;
+    top: 50%;
+    left: 1.6%;
+    translate: 0% -50%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 4px;
+    &__text {
+      font-family: var(--font-secondary);
+      font-weight: var(--font-weight-700);
+      font-size: var(--font-size-base);
+      letter-spacing: var(--tracking-none);
+      writing-mode: vertical-rl;
+    }
+    &__bar {
+      width: 1px;
+      position: relative;
+      z-index: 1;
+      overflow: hidden;
+      height: 24px;
+      @include mixin.mq("md") {
+        height: 36px;
+      }
+      @include mixin.mq("lg") {
+        height: 48px;
+      }
+      &::after {
+        content: "";
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        top: 0;
+        left: 0;
+        background-color: var(--color-neutral-900);
+        animation-name: scroll-bar;
+        animation-duration: 2.4s;
+        animation-delay: 1.2s;
+        animation-fill-mode: both;
+        animation-iteration-count: infinite;
+        animation-timing-function: ease-in-out;
+      }
+    }
+  }
+}
+
+@keyframes scroll-bar {
+  0% {
+    translate: 0 -100%;
+  }
+  90%,
+  100% {
+    translate: 0 100%;
+  }
+}
