@@ -19,6 +19,7 @@
   --color-border-primary: var(--color-primary);
   --color-border-secondary: var(--color-secondary);
   --color-background-base: var(--color-fifth);
+  --color-background-primary: var(--color-primary);
   /* logo */
     --logo-text-size:3rem;
   /* fontFamily */
@@ -33,6 +34,8 @@
   @for $i from 1 through 30 {
     --spacing-#{$i}: #{0.25rem * $i};
   }
+  --section-margin-top: var(--spacing-24);
+  // --section-padding-block: ;
   /* fontSize */
   --font-size-base: 0.875rem; //14px
   --typo-scale--3: #{function.calcTypoScale(14, -3, 1.075)}; //12px
@@ -86,7 +89,9 @@
     --icon-link-width: 48px;
     --icon-link-height: 48px;
     --icon-gutter: 16px;
-
+    
+    --section-margin-top: var(--spacing-25);
+    // --section-padding-block: ;
     /* fontSize */
     --typo-scale--3: #{function.calcTypoScale(14, -3, 1.125)}; /*10px*/
     --typo-scale--2: #{function.calcTypoScale(14, -2, 1.125)}; /*11px*/
@@ -113,6 +118,7 @@
   :root {
     /* logo */
     --logo-text-size: 4.375rem;
+    --section-margin-top: var(--spacing-30);
 
     /* fontSize */
     --font-size-base: 1rem; //16px
@@ -169,7 +175,7 @@ a:hover {
 
 a:focus,
 a:focus-visible,
-button:focus,
+// button:focus,
 button:focus-visible {
   border-color: var(--color-primary);
   outline-color: var(--color-primary);
