@@ -1,0 +1,31 @@
+@use "@/styles/foundation/mixin" as mixin;
+
+/* IconList
+   ----------------------------------------------------------------- */
+.iconList {
+  --icon-link-width: 48px;
+  --icon-link-height: 48px;
+  --icon-gutter: 16px;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  gap: var(--icon-gutter);
+  &__link {
+    border: 1px solid var(--color-border-base);
+    width: var(--icon-link-width);
+    height: var(--icon-link-height);
+    border-radius: 8px;
+    display: grid;
+    place-content: center;
+    transition: background-color 0.3s, border-color 0.3s;
+    &:hover {
+      background-color: var(--color-background-base);
+      border-color: var(--color-border-primary);
+    }
+  }
+  &__icon {
+    width: calc(var(--icon-link-width) / 2);
+    height: auto;
+    display: block;
+  }
+}
