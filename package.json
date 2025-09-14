@@ -9,7 +9,9 @@
     "lint": "eslint"
   },
   "dependencies": {
+    "@splidejs/react-splide": "^0.7.12",
     "@splidejs/splide": "^4.1.4",
+    "@splidejs/splide-extension-auto-scroll": "^0.5.3",
     "clsx": "^2.1.1",
     "destyle.css": "^4.0.1",
     "gsap": "^3.13.0",
