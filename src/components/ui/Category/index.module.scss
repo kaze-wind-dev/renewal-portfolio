@@ -1,0 +1,24 @@
+@use "@/styles/foundation/mixin" as mixin;
+/* Category
+   ----------------------------------------------------------------- */
+.c-category {
+  background-color: var(--color-primary);
+  color: var(--color-white);
+  font-weight: var(--font-weight-700);
+  letter-spacing: var(--tracking-base);
+  border-radius:2em;
+  text-align: center;
+  display: block;
+  width: fit-content;
+  font-size: var(--typo-scale--1);
+  line-height: 2;
+  padding-inline: 1em;
+  @include mixin.mq("md") {
+  }
+
+  @include mixin.mq("lg") {
+  // font-size: var(--text-sm);
+  // line-height: 30px;
+  // padding-inline: 8px;
+  }
+}
