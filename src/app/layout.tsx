@@ -1,6 +1,7 @@
 import clsx from "clsx";
 import { Zen_Kaku_Gothic_New, Outfit } from "next/font/google";
 import "@/styles/global.scss";
+import Header from "@/components/layout/Header";
 
 const ZenKakuGothicNewFont = Zen_Kaku_Gothic_New({
   weight: ["500", "700"],
@@ -27,7 +28,12 @@ export default function RootLayout({
       lang="ja"
       className={clsx(ZenKakuGothicNewFont.variable, OutfitFont.variable)}
     >
-      <body>{children}</body>
+      <body>
+        <div className="global-container">
+          <Header />
+          {children}
+        </div>
+      </body>
     </html>
   );
 }
