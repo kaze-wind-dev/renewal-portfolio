@@ -15,11 +15,12 @@
   --color-text-white: var(--color-white);
   --color-text-primary: var(--color-primary);
   --color-text-error: var(--color-error);
-  --color-border-base: var(--color-600);
+  --color-border-base: var(--color-neutral-400);
   --color-border-primary: var(--color-primary);
   --color-border-secondary: var(--color-secondary);
   --color-background-base: var(--color-fifth);
-  
+  /* logo */
+    --logo-text-size:3rem;
   /* fontFamily */
   @each $key, $property in $fontFamily {
     --font-#{$key}: #{$property};
@@ -78,6 +79,14 @@
 }
 @include mixin.mq("md") {
   :root {
+    /* logo */
+    --logo-text-size: 3.5rem;
+
+    /* iconList */
+    --icon-link-width: 48px;
+    --icon-link-height: 48px;
+    --icon-gutter: 16px;
+
     /* fontSize */
     --typo-scale--3: #{function.calcTypoScale(14, -3, 1.125)}; /*10px*/
     --typo-scale--2: #{function.calcTypoScale(14, -2, 1.125)}; /*11px*/
@@ -102,6 +111,9 @@
 }
 @include mixin.mq("lg") {
   :root {
+    /* logo */
+    --logo-text-size: 4.375rem;
+
     /* fontSize */
     --font-size-base: 1rem; //16px
     --typo-scale--3: #{function.calcTypoScale(16, -3, 1.125)}; /*11px*/
@@ -159,8 +171,8 @@ a:focus,
 a:focus-visible,
 button:focus,
 button:focus-visible {
-  border-color: var(--color-accent-darken);
-  outline-color: var(--color-accent-darken);
+  border-color: var(--color-primary);
+  outline-color: var(--color-primary);
 }
 
 ::selection {

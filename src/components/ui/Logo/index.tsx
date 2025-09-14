@@ -19,12 +19,12 @@ const Logo = ({
 }: LogoProps) => {
   return link ? (
     <Link href="/" className={clsx(styles["c-logo"], className)}>
-      <LogoMarkImage width={width} height={height} />
+      <LogoMarkImage className={styles["c-logo__mark"]} width={width} height={height} />
       <span className={styles["c-logo__text"]}>Kaze Portfolio</span>
     </Link>
   ) : (
     <div className={clsx(styles["c-logo"], className)}>
-      <LogoMarkImage width={width} height={height} />
+      <LogoMarkImage className={styles["c-logo__mark"]} width={width} height={height} />
       <span className={styles["c-logo__text"]}>Kaze Portfolio</span>
     </div>
   );

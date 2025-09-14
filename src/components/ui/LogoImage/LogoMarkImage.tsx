@@ -1,11 +1,13 @@
 type LogoMarkImageProps = {
   width?: number;
   height?: number;
+  className?: string;
 };
 
-const LogoMarkImage = ({ width = 104, height = 104 }: LogoMarkImageProps) => {
+const LogoMarkImage = ({ width = 104, height = 104, className }: LogoMarkImageProps) => {
   return (
     <svg
+      className={className}
       width={width}
       height={height}
       viewBox="0 0 104 104"

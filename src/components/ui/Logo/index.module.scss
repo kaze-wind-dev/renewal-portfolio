@@ -1,24 +1,20 @@
+@use "@/styles/foundation/variables" as *;
+@use "@/styles/foundation/mixin" as mixin;
 
 /* logo */
 .c-logo {
   display: flex;
   align-items: center;
   justify-content: flex-start;
-  font-size: 3rem;
+  font-size: var(--logo-text-size);
   gap: 0.5em;
-  @include mixin.mq("md"){
-    font-size: 3.5rem;
-  }
-  @include mixin.mq("lg"){
-    font-size: 4.375rem;
-  }
   &__text {
     font-family: var(--font-secondary);
     font-weight: var(--font-weight-700);
     letter-spacing: var(--tracking-none);
     white-space: nowrap;
   }
-  > svg {
+  &__mark {
     width: 1.5em;
     height: auto;
   }
