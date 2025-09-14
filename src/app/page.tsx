@@ -1,8 +1,15 @@
 import clsx from "clsx";
+import { WORKS_LIST_LIMIT } from "@/constants";
+import TopWorks from "@/components/sections/topWorks";
+import { getWorksList } from "@/lib/api/microcms";
 import styles from "./page.module.scss";
 
-export default function Home() {
+export default async function Home() {
+    const { contents: works } = await getWorksList({
+    limit: WORKS_LIST_LIMIT,
+  });
   return (
+    <>
     <section className={clsx(styles["p-topHero"])}>
       <div className={clsx(styles["p-topHero__inner"], "inner")}>
         <p className={clsx(styles["p-topHero__en-text"])}>
@@ -33,5 +40,7 @@ export default function Home() {
         </div>
       </div>
     </section>
+    <TopWorks works={works} />
+    </>
   );
 }

@@ -29,7 +29,7 @@
     margin-bottom: var(--typo-scale-12);
     order: 1;
     @include mixin.mq("md") {
-      font-size: var(--typo-scale-13);
+      font-size: var(--typo-scale-15);
     }
   }
   &__heading {

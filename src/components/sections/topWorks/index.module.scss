@@ -1,0 +1,119 @@
+@use "@/styles/foundation/mixin" as mixin;
+
+/* TopWorks
+   ----------------------------------------------------------------- */
+.p-topWorks {
+  padding-left: max(5%, calc(50% - 640px));
+  margin-top: var(--section-margin-top);
+  // @include mixin.mq("lg") {
+  // }
+  &__title {
+    // grid-area: title;
+    // margin-bottom: 0;
+    // @include mixin.mq("lg") {
+    //   margin-bottom: 200px;
+    // }
+  }
+  &__header {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    padding-right: 5%;
+    margin-bottom: var(--spacing-10);
+    @include mixin.mq("md") {
+      margin-bottom: var(--spacing-12);
+    }
+    @include mixin.mq("lg") {
+      margin-bottom: 0;
+      display: block;
+      width: 300px;
+      flex-shrink: 0;
+      padding-right: 0;
+    }
+  }
+  &__slider-arrows {
+    // grid-area: arrow;
+    margin-top: var(--spacing-3);
+    flex-shrink: 0;
+    @include mixin.mq("lg") {
+      margin-top: 0;
+    }
+  }
+  &__inner {
+    // @include mixin.mq("lg") {
+    //   display: flex;
+    //   gap: 0 40px;
+    // }
+  }
+  &__actions {
+    // width: 108px;
+    display: flex;
+    align-items: center;
+    // justify-content: center;
+    justify-content: flex-start;
+    // justify-content: space-between;
+    gap: 100px;
+    width: 95%;
+    max-width: 1440px;
+    // @include mixin.mq("lg") {
+    //   width: 144px;
+    // }
+    margin-top: var(--spacing-10);
+    @include mixin.mq("lg") {
+
+    margin-top: var(--spacing-14);
+    }
+  }
+  
+  &__controls {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    // flex-shrink: 0;
+    gap: 72px;
+   
+  }
+  &__progress {
+    background: var(--color-neutral-200);
+    // width: 100%;
+    width: 700px;
+    border-radius: 2px;
+    &-bar{
+      background: var(--color-text-base);
+      height: 4px;
+      border-radius: 2px;
+      transition: width 400ms ease;
+      width: 0;
+    }
+  }
+  &__moreLink {
+    font-weight: var(--font-weight-700);
+    color: var(--color-text-base);
+    border-bottom: 2px solid var(--color-text-base);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 0.5em;
+    padding-block: 0.5em;
+    // grid-area: link;
+    width: 160px;
+
+    // @include mixin.mq("lg") {
+    //   margin-bottom: var(--spacing-6);
+    // }
+    &-arrow {
+      height: auto;
+      display: block;
+      @include mixin.mq("lg") {
+        width: 24px;
+      }
+    }
+    &:hover {
+      opacity: 1;
+      color: var(--color-primary);
+      border-color: var(--color-primary);
+    }
+  }
+
+}
+
