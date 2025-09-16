@@ -3,13 +3,13 @@ import Link from "next/link";
 import clsx from "clsx";
 import { useRef, useEffect } from "react";
 import { HiOutlineArrowNarrowRight } from "react-icons/hi";
-import { Splide, SplideTrack,SplideSlide } from "@splidejs/react-splide";
+import { Splide, SplideTrack, SplideSlide } from "@splidejs/react-splide";
 import SectionTitle from "@/components/ui/SectionTitle";
 import WorksCard from "@/components/ui/Card/WorksCard";
 import CustomSplideArrows from "@/components/ui/CustomSprideArrows";
 import type { Works } from "@/types/microcms";
 import styles from "./index.module.scss";
-import '@splidejs/react-splide/css/core';
+import "@splidejs/react-splide/css/core";
 
 type Props = {
   works: Works[];
@@ -47,15 +47,15 @@ const TopWorks = ({ works }: Props) => {
     const splide = splideRef.current.splide;
     if (!splide) return;
     const bar = splide.root.querySelector(".topWorks-progress");
-    const updateProgress=()=>{
-      const end  = splide.Components.Controller.getEnd() + 1;
-      const rate = Math.min( ( splide.index + 1 ) / end, 1 );
-      bar.style.width = String( 100 * rate ) + '%';
-    }
-    splide.on( 'mounted move', updateProgress );
-    return ()=>{
-      splide.off( 'mounted move', updateProgress );
-    }
+    const updateProgress = () => {
+      const end = splide.Components.Controller.getEnd() + 1;
+      const rate = Math.min((splide.index + 1) / end, 1);
+      bar.style.width = String(100 * rate) + "%";
+    };
+    splide.on("mounted move", updateProgress);
+    return () => {
+      splide.off("mounted move", updateProgress);
+    };
   }, []);
   return (
     <section className={clsx(styles["p-topWorks"])}>
@@ -76,34 +76,39 @@ const TopWorks = ({ works }: Props) => {
           hasTrack={false}
         >
           <SplideTrack className={clsx(styles["p-topWorks__slider-track"])}>
-          {works.map((article) => {
-            return (
-              <SplideSlide
-                className={clsx(styles["p-topWorks__slider-slide"])}
-                key={article.id}
-              >
-                <WorksCard works={article} />
-              </SplideSlide>
-            );
-          })}
+            {works.map((article) => {
+              return (
+                <SplideSlide
+                  className={clsx(styles["p-topWorks__slider-slide"])}
+                  key={article.id}
+                >
+                  <WorksCard works={article} />
+                </SplideSlide>
+              );
+            })}
           </SplideTrack>
-        <div className={clsx(styles["p-topWorks__actions"])}>
-          <div className={clsx(styles["p-topWorks__controls"])}>
-            <CustomSplideArrows
-              splideRef={splideRef}
-              className={clsx(styles["p-topWorks__slider-arrows"])}
-            />
-            <div className={clsx(styles["p-topWorks__progress"])}>
-              <div className={clsx(styles["p-topWorks__progress-bar"],"topWorks-progress")}></div>
+          <div className={clsx(styles["p-topWorks__actions"])}>
+            <div className={clsx(styles["p-topWorks__controls"])}>
+              <CustomSplideArrows
+                splideRef={splideRef}
+                className={clsx(styles["p-topWorks__slider-arrows"])}
+              />
+              <div className={clsx(styles["p-topWorks__progress"])}>
+                <div
+                  className={clsx(
+                    styles["p-topWorks__progress-bar"],
+                    "topWorks-progress"
+                  )}
+                ></div>
+              </div>
             </div>
+            <Link href="/works" className={styles["p-topWorks__moreLink"]}>
+              一覧を見る
+              <HiOutlineArrowNarrowRight
+                className={clsx(styles["p-topWorks__moreLink-arrow"])}
+              />
+            </Link>
           </div>
-          <Link href="/works" className={styles["p-topWorks__moreLink"]}>
-            一覧を見る
-            <HiOutlineArrowNarrowRight
-              className={clsx(styles["p-topWorks__moreLink-arrow"])}
-            />
-          </Link>
-        </div>
         </Splide>
       </div>
     </section>
