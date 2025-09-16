@@ -1,11 +1,10 @@
-
 export interface ZennUserName {
   username: string;
 }
 
 export interface ZennUser {
   id: number;
-  username: ZennUser;
+  username: string;
   name: string;
   avatar_small_url: string;
 }
@@ -36,6 +35,14 @@ export interface ZennArticleList {
   articles: ZennArticle[];
   next_page: string | null;
   total_count: string | null;
+}
+
+export interface ZennQueries {
+  page?: number;
+  count?: number;
+  order?: string;
+  topic?: string;
+  article_type?: "tech" | "idea";
 }
 
 export type SortKey = keyof ZennArticle;
