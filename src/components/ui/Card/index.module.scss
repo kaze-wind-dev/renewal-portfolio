@@ -51,8 +51,12 @@
     border-radius: 8px;
     text-align: center;
     place-content: center;
-    font-size: var(--typo-scale-7);
-    background: linear-gradient(135deg, var(--gradation-primary));
+    font-size: var(--typo-scale-12);
+    background: linear-gradient(
+      135deg,
+      var(--color-fifth),
+      var(--color-tertiary)
+    );
   }
   &__body {
     width: 100%;
@@ -79,7 +83,7 @@
     font-weight: var(--font-weight-700);
     display: block;
   }
-  &__period{
+  &__period {
     margin-top: var(--spacing-2);
   }
   &__time {
@@ -100,12 +104,11 @@
     &__item {
       // color: var(--color-base);
       color: var(--color-text-base);
-      padding: 0.2em .75em .3em;
+      padding: 0.2em 0.75em 0.3em;
       border-radius: 2em;
       border: 1px solid var(--color-text-base);
       // background-color: var(--color-neutral-300);
       line-height: 1;
-
     }
   }
   &__zenn {
@@ -118,7 +121,7 @@
       display: block;
     }
   }
-  &__liked-count{
+  &__liked-count {
     color: var(--color-neutral-500);
     display: flex;
     align-items: center;
