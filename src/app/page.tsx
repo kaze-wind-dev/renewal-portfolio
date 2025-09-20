@@ -1,7 +1,9 @@
 import clsx from "clsx";
 import { WORKS_LIST_LIMIT, TOP_ZENN_LIST_LIMIT } from "@/constants";
+import Button from "@/components/ui/Button";
 import TopWorks from "@/components/sections/topWorks";
 import TopArticles from "@/components/sections/TopArticles";
+import TopSkill from "@/components/sections/TopSkill";
 import { getWorksList } from "@/lib/api/microcms";
 import { getZennArticles } from "@/lib/api/zennFunctions";
 import styles from "./page.module.scss";
@@ -14,7 +16,6 @@ export default async function Home() {
     count: TOP_ZENN_LIST_LIMIT,
     order: "latest",
   });
-  console.log(zennArticlesData);
   return (
     <>
       <section className={clsx(styles["p-topHero"])}>
@@ -49,6 +50,7 @@ export default async function Home() {
       </section>
       <TopWorks works={works} />
       <TopArticles articles={zennArticlesData.articles} />
+      <TopSkill />
     </>
   );
 }
