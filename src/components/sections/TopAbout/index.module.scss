@@ -1,0 +1,104 @@
+@use "@/styles/foundation/mixin" as mixin;
+
+/* TopAbout
+   ----------------------------------------------------------------- */
+.p-topAbout {
+  padding-block: var(--section-padding-block);
+  background-color: var(--color-background-base);
+  &__inner {
+    display: grid;
+    align-items: center;
+    justify-items: center;
+    grid-template-areas:
+      "title"
+      "image"
+      "text-area"
+      "button";
+    grid-template-columns: 1fr;
+
+    @include mixin.mq("md") {
+      align-items: start;
+      justify-items: start;
+      grid-template-areas:
+        "title image"
+        "text-area image"
+        "button image";
+      grid-template-columns: 50% 1fr;
+      gap: 0 40px;
+    }
+    @include mixin.mq("lg") {
+      gap: 0 64px;
+    }
+  }
+  &__title {
+    grid-area: title;
+    margin-bottom: var(--spacing-12);
+    align-items: center;
+    // text-align: center;
+    @include mixin.setFont(
+      $weight: var(--font-weight-900),
+      $tracking: var(--tracking-base),
+      $size: var(--typo-scale-10)
+    );
+    @include mixin.mq("md") {
+      // $size: var(--typo-scale-15);
+      margin-bottom: var(--spacing-14);
+      align-items: flex-start;
+      text-align: left;
+      margin-inline: 0 auto;
+    }
+    @include mixin.mq("lg") {
+      margin-bottom: var(--spacing-15);
+    }
+  }
+  &__text-area {
+    grid-area: text-area;
+    @include mixin.mq("md") {
+      justify-self: self-start;
+    }
+  }
+  &__text {
+    line-height: var(--leading-lg);
+
+    &:not(:nth-last-of-type(1)) {
+      margin-bottom: 1em;
+    }
+    @include mixin.mq("md") {
+      &:not(:nth-last-of-type(1)) {
+        margin-bottom: 2em;
+      }
+    }
+  }
+  &__button {
+    margin-top: var(--spacing-8);
+    grid-area: button;
+    @include mixin.mq("md") {
+      justify-self: self-start;
+      margin-top: var(--spacing-10);
+    }
+    @include mixin.mq("lg") {
+      margin-top: var(--spacing-14);
+    }
+  }
+  &__image {
+    grid-area: image;
+    aspect-ratio: 8 / 5;
+    width: 100%;
+    margin-bottom: var(--spacing-6);
+    @include mixin.mq("md") {
+      margin-bottom: 0;
+      width: 100%;
+      height: 300px;
+    }
+    @include mixin.mq("lg") {
+      height: 350px;
+    }
+    > img {
+      object-fit: cover;
+      object-position: center;
+      width: 100%;
+      height: 100%;
+      border-radius: 8px;
+    }
+  }
+}
