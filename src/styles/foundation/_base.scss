@@ -20,6 +20,7 @@
   --color-border-secondary: var(--color-secondary);
   --color-background-base: var(--color-fifth);
   --color-background-primary: var(--color-primary);
+  --color-btn-primary: var(--color-neutral-900);
   /* logo */
     --logo-text-size:3rem;
   /* fontFamily */
@@ -34,8 +35,8 @@
   @for $i from 1 through 30 {
     --spacing-#{$i}: #{0.25rem * $i};
   }
-  --section-margin-top: var(--spacing-24);
-  // --section-padding-block: ;
+  --section-margin-top: var(--spacing-30);
+  --section-padding-block: var(--spacing-30);
   /* fontSize */
   --font-size-base: 0.875rem; //14px
   --typo-scale--3: #{function.calcTypoScale(14, -3, 1.075)}; //12px
@@ -57,6 +58,10 @@
   --typo-scale-14: #{function.calcTypoScale(14, 14, 1.075)}; //35px
   --typo-scale-15: #{function.calcTypoScale(14, 15, 1.075)}; //37px
   --typo-scale-16: #{function.calcTypoScale(14, 16, 1.075)}; //40px
+  --typo-scale-17: #{function.calcTypoScale(14, 17, 1.075)}; //40px
+  --typo-scale-18: #{function.calcTypoScale(14, 18, 1.075)}; //40px
+  --typo-scale-19: #{function.calcTypoScale(14, 19, 1.075)}; //40px
+  --typo-scale-20: #{function.calcTypoScale(14, 20, 1.075)}; //40px
   --font-size-xm: var(--typo-scale--2);
   --font-size-sm: var(--typo-scale--1);
   --font-size-md: var(--typo-scale-2);
@@ -112,6 +117,10 @@
     --typo-scale-14: #{function.calcTypoScale(14, 14, 1.125)}; /*73px*/
     --typo-scale-15: #{function.calcTypoScale(14, 15, 1.125)}; /*82px*/
     --typo-scale-16: #{function.calcTypoScale(14, 16, 1.125)}; /*92px*/
+    --typo-scale-17: #{function.calcTypoScale(14, 17, 1.125)}; //40px
+    --typo-scale-18: #{function.calcTypoScale(14, 18, 1.125)}; //40px
+    --typo-scale-19: #{function.calcTypoScale(14, 19, 1.125)}; //40px
+    --typo-scale-20: #{function.calcTypoScale(14, 20, 1.125)}; //40px
   }
 }
 @include mixin.mq("lg") {
@@ -141,6 +150,10 @@
     --typo-scale-14: #{function.calcTypoScale(16, 14, 1.125)}; /*83px*/
     --typo-scale-15: #{function.calcTypoScale(16, 15, 1.125)}; /*94px*/
     --typo-scale-16: #{function.calcTypoScale(16, 16, 1.125)}; /*105px*/
+    --typo-scale-17: #{function.calcTypoScale(16, 17, 1.125)}; //40px
+    --typo-scale-18: #{function.calcTypoScale(16, 18, 1.125)}; //40px
+    --typo-scale-19: #{function.calcTypoScale(16, 19, 1.125)}; //40px
+    --typo-scale-20: #{function.calcTypoScale(16, 20, 1.125)}; //40px
   }
 }
 
@@ -153,16 +166,17 @@ html {
 body {
   background-color: var(--color-white);
   color: var(--color-neutral-900);
+  overflow-wrap: anywhere;
+  word-break: normal;
+  line-break: strict;
   @include mixin.setFont(
     $family: var(--font-primary),
     $weight: var(--font-weight-500),
     $tracking: var(--tracking-base),
     $leading: var(--leading-base),
-    $size: var(--text-sm)
+    $size: var(--font-size-base)
   );
-  overflow-wrap: anywhere;
-  word-break: normal;
-  line-break: strict;
+
   @include mixin.mq("lg") {
     font-size: var(--text-base);
   }
