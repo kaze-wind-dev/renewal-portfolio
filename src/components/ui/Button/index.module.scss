@@ -1,0 +1,43 @@
+@use "@/styles/foundation/mixin" as mixin;
+/* Button
+   ----------------------------------------------------------------- */
+
+.c-button {
+  border-radius: 3em;
+  text-align: center;
+  padding: 1.25em;
+  display: block;
+  @include mixin.setFont($weight: var(--font-weight-700));
+  background-color: var(--color-btn-primary);
+  border: 2px solid var(--color-btn-primary);
+  color: var(--color-white);
+  &--primary {
+    transition: color 0.3s, background-color 0.3s;
+    &:hover {
+      background-color: var(--color-white);
+      color: var(--color-text-base);
+      opacity: 1;
+    }
+  }
+  &--small {
+    width: 100%;
+    @include mixin.mq("sm") {
+      max-width: 240px;
+    }
+  }
+  &--medium {
+    width: 100%;
+    @include mixin.mq("sm") {
+      max-width: 320px;
+    }
+  }
+  &--large {
+    width: 100%;
+    @include mixin.mq("sm") {
+      max-width: 400px;
+    }
+  }
+  &--fit {
+    width: fit-content;
+  }
+}
