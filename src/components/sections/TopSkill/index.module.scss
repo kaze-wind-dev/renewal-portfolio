@@ -1,0 +1,132 @@
+@use "@/styles/foundation/mixin" as mixin;
+
+/* TopSkill
+   ----------------------------------------------------------------- */
+.p-topSkill {
+  padding-block: var(--section-padding-block);
+  position: relative;
+  z-index: 1;
+  &::after {
+    content: "";
+    width: 100%;
+    background-color: var(--color-background-base);
+    position: absolute;
+    bottom: 0;
+    z-index: -1;
+    left: 0;
+    height: 342px;
+    @include mixin.mq("md") {
+      height: 366px;
+    }
+    @include mixin.mq("lg") {
+      height: 419px;
+    }
+  }
+  &__text {
+    text-align: center;
+    line-height: var(--leading-lg);
+    padding-inline: 5%;
+    &:not(:nth-last-of-type(1)) {
+      margin-bottom: 1em;
+    }
+    @include mixin.mq("md") {
+      &:not(:nth-last-of-type(1)) {
+        margin-bottom: 2em;
+      }
+    }
+  }
+  &__button {
+    margin-inline: auto;
+    margin-top: var(--spacing-12);
+    width: 90%;
+    @include mixin.mq("md") {
+      margin-top: var(--spacing-14);
+    }
+    @include mixin.mq("lg") {
+      margin-top: var(--spacing-16);
+    }
+  }
+  &__slider {
+    margin-top: var(--spacing-10);
+    @include mixin.mq("md") {
+      margin-top: var(--spacing-14);
+    }
+    @include mixin.mq("lg") {
+      margin-top: var(--spacing-18);
+    }
+  }
+  &__slider-slide {
+    display: grid;
+    place-content: center;
+    img {
+      height: auto;
+      display: block;
+    }
+    &--html > img {
+      width: 82px * .75;
+      @include mixin.mq("lg") {
+        width: 82px;
+      }
+    }
+    &--css > img {
+      width: 71px * .75;
+      @include mixin.mq("lg") {
+        width: 71px;
+      }
+    }
+    &--sass > img {
+      width: 80px * .75;
+      @include mixin.mq("lg") {
+        width: 80px;
+      }
+    }
+    &--javascript > img {
+      width: 80px * .75;
+      @include mixin.mq("lg") {
+        width: 80px;
+      }
+    }
+    &--typescript > img {
+      width: 80px * .75;
+      @include mixin.mq("lg") {
+        width: 80px;
+      }
+    }
+    &--next > img {
+      width: 240px * .75;
+      @include mixin.mq("lg") {
+        width: 240px;
+      }
+    }
+    &--react > img {
+      width: 80px * .75;
+      @include mixin.mq("lg") {
+        width: 80px;
+      }
+    }
+    &--php > img {
+      width: 96px * .75;
+      @include mixin.mq("lg") {
+        width: 96px;
+      }
+    }
+    &--microcms > img {
+      width: 300px * .75;
+      @include mixin.mq("lg") {
+        width: 300px;
+      }
+    }
+    &--vercel > img {
+      width: 288px * .75;
+      @include mixin.mq("lg") {
+        width: 288px;
+      }
+    }
+    &--github > img {
+      width: 72px * .75;
+      @include mixin.mq("lg") {
+        width: 72px;
+      }
+    }
+  }
+}
