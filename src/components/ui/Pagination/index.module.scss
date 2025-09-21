@@ -1,0 +1,55 @@
+@use "@/styles/foundation/mixin" as mixin;
+
+/* Pagination
+   ----------------------------------------------------------------- */
+.c-pagination {
+  margin-top: var(--spacing-14);
+  @include mixin.mq("md") {
+    margin-top: var(--spacing-16);
+  }
+  @include mixin.mq("lg") {
+    margin-top: var(--spacing-18);
+  }
+  &__list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: flex-start;
+    gap: var(--spacing-2);
+    @include mixin.mq("lg") {
+      gap: var(--spacing-3);
+    }
+  }
+  &__item {
+    font-size: var(--text-sm);
+    font-weight: var(--font-weight-700);
+    @include mixin.mq("lg") {
+      font-size: var(--text-base);
+    }
+  }
+  &__link {
+    display: block;
+    width: 3em;
+    height: 3em;
+    border-radius: 50%;
+    border: 2px solid var(--color-neutral-900);
+    background-color: var(--color-white);
+    color: var(--color-neutral-900);
+    align-content: center;
+    text-align: center;
+    transition: color 0.3s background 0.3s;
+    &-arrow{
+      display: block;
+      margin-inline: auto;
+    }
+    &:hover {
+      opacity: 1;
+      background-color: var(--color-neutral-900);
+      color: var(--color-white);
+    }
+    &--current {
+      background-color: var(--color-neutral-900);
+      color: var(--color-white);
+    }
+  }
+}
