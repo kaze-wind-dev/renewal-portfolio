@@ -16,11 +16,15 @@
   border: 2px solid var(--color-text-base);
   display: grid;
   place-content: center;
-  background-color: var(--color-neutral-100);
+  background-color: var(--color-white);
   color: var(--color-text-base);
   transition: background-color 0.3s, border-color 0.3s, color 0.3s;
   width: 3rem;
   height: 3rem;
+  @include mixin.mq("md") {
+    width: 3.5rem;
+    height: 3.5rem;
+  }
   @include mixin.mq("lg") {
     width: 4rem;
     height: 4rem;
