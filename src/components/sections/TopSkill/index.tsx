@@ -133,10 +133,10 @@ const TopSkill = () => {
         <p className={clsx(styles["p-topSkill__text"], "wbr")}>
          HTML・Sass・PHP・自社CMSを使用して<wbr />サイト制作を行っています。
           <br />
-          現在の会社へ就職後、およそ3年半で<wbr />200以上ものサイト構築に携わりました。
+          現在の会社へ入社後、3年半で200以上のサイト構築を担当し、<wbr />幅広い業界のWebサイトを手がけてきました。
         </p>
         <p className={clsx(styles["p-topSkill__text"], "wbr")}>
-          現在は、React.jsやNext.jsなど<wbr />モダンフロント技術を学んでいます。
+          現在は、React.jsやNext.js、TypeScriptを中心に<wbr />モダンフロント技術を学んでおり、microCMSやVercelを使用した<wbr />フロントエンドの実装を行っています。
         </p>
         <Splide
           options={splideOptions}
