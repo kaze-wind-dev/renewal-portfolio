@@ -25,17 +25,18 @@ const TopArticles = ({ articles }: Props) => {
     breakpoints: {
       960: {
         gap: "1.5rem",
-
         fixedWidth: "280px",
       },
       560: {
+        gap: "1.5rem",
         fixedWidth: "64%",
       },
       480: {
-        gap: "1rem",
-        fixedWidth: "72%",
+        gap: "1.5rem",
+        fixedWidth: "70%",
       },
       400: {
+        gap: "1.5rem",
         fixedWidth: "80%",
       },
     },
@@ -50,6 +51,7 @@ const TopArticles = ({ articles }: Props) => {
       const rate = Math.min((splide.index + 1) / end, 1);
       bar.style.width = String(100 * rate) + "%";
     };
+    updateProgress();
     splide.on("mounted move", updateProgress);
     return () => {
       splide.off("mounted move", updateProgress);
