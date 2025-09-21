@@ -3,12 +3,12 @@
 /* TopArticles
    ----------------------------------------------------------------- */
 .p-topArticles {
-  padding-left: max(5%, calc(50% - 640px));
-  margin-top: var(--section-margin-top);
+ padding-left: max(5%, calc(50% - 640px));
+  padding-block: var(--section-padding-block);
+  background-color: var(--color-background-base);
   &__title {
   }
   &__slider-arrows {
-    margin-top: var(--spacing-3);
     flex-shrink: 0;
     @include mixin.mq("lg") {
       margin-top: 0;
@@ -20,11 +20,19 @@
     display: flex;
     align-items: center;
     justify-content: flex-start;
-    gap: 100px;
+    flex-wrap: wrap;
     width: 95%;
     max-width: 1440px;
     margin-top: var(--spacing-10);
+    gap: var(--spacing-2) 0;
+    @include mixin.mq("md") {
+      flex-wrap: nowrap;
+      margin-top: var(--spacing-12);
+      gap: var(--spacing-14);
+      justify-content: space-between;
+    }
     @include mixin.mq("lg") {
+      gap: var(--spacing-25);
       margin-top: var(--spacing-14);
     }
   }
@@ -33,10 +41,16 @@
     display: flex;
     align-items: center;
     justify-content: flex-start;
-    gap: 72px;
+    gap: var(--spacing-8);
+    @include mixin.mq("md") {
+      gap: var(--spacing-14);
+    }
+    @include mixin.mq("lg") {
+      gap: var(--spacing-18);
+    }
   }
   &__progress {
-    background: var(--color-neutral-200);
+    background: var(--color-white);
     width: 700px;
     border-radius: 2px;
     &-bar {
@@ -57,18 +71,24 @@
     gap: 0.5em;
     padding-block: 0.5em;
     width: 160px;
+    flex-shrink: 0;
+    margin-left: auto;
 
     &-arrow {
       height: auto;
       display: block;
+      transition: 0.3s;
       @include mixin.mq("lg") {
-        width: 24px;
+        width: var(--spacing-4);
       }
     }
     &:hover {
       opacity: 1;
       color: var(--color-primary);
       border-color: var(--color-primary);
+      .p-topWorks__moreLink-arrow {
+        transform: translateX(25%);
+      }
     }
   }
 }
