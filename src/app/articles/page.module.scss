@@ -1,0 +1,7 @@
+@use "@/styles/foundation/mixin" as mixin;
+/* Articles
+   ----------------------------------------------------------------- */
+.p-articles {
+    padding-block: calc(var(--section-padding-block) / 2)
+    var(--section-padding-block);
+}
