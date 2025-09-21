@@ -4,17 +4,16 @@
    ----------------------------------------------------------------- */
 .c-cards-container {
   display: grid;
-  gap: var(--spacing-7);
+  gap: var(--spacing-8);
   grid-template-columns:minmax(0, 1fr);
-  
-  @include mixin.mq("sm") {
+
+  @include mixin.mq("md") {
+    gap: var(--spacing-7);
+    // gap: 30px;
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
-  @include mixin.mq("md") {
-    gap: 30px;
-    grid-template-columns: repeat(3, minmax(0, 1fr));
-  }
   @include mixin.mq("lg") {
-    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: var(--spacing-8);
+    grid-template-columns: repeat(3, minmax(0, 1fr));
   }
 }
