@@ -1,0 +1,6 @@
+@use "@/styles/foundation/mixin" as mixin;
+/* Works
+   ----------------------------------------------------------------- */
+.p-works {
+    padding-block: 0 var(--section-padding-block);
+}
