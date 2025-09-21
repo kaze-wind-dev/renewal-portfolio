@@ -4,7 +4,7 @@
    ----------------------------------------------------------------- */
 .p-topWorks {
   padding-left: max(5%, calc(50% - 640px));
-  margin-top: var(--section-margin-top);
+  padding-block: var(--section-padding-block);
   &__title {
   }
   &__slider-arrows {
