@@ -7,18 +7,11 @@
   z-index: 1;
   background: url("/images/hero_bg.svg") no-repeat bottom right /
     min(556px, function.percent(556, 960));
-  padding-block: 84px;
+  padding-block: var(--spacing-25);
   @include mixin.mq("md") {
-    padding-block: 105px;
+    padding-block: var(--section-padding-block) calc(var(--section-padding-block) + var(--spacing-18));
     background: url("/images/hero_bg.svg") no-repeat bottom right /
    auto;
-  }
-  &__inner {
-    display: grid;
-    padding-left: 3%;
-    @include mixin.mq("md") {
-      padding-left: 0;
-    }
   }
   &__en-text {
     font-family: var(--font-secondary);
