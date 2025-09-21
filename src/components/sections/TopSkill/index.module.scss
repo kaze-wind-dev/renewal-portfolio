@@ -11,15 +11,16 @@
     width: 100%;
     background-color: var(--color-background-base);
     position: absolute;
-    bottom: 0;
+    // bottom: 0;
+    top: 0;
     z-index: -1;
     left: 0;
-    height: 342px;
+    height: 131px;
     @include mixin.mq("md") {
-      height: 366px;
+      height: 157px;
     }
     @include mixin.mq("lg") {
-      height: 419px;
+      height: 170px;
     }
   }
   &__text {
