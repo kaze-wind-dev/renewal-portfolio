@@ -1,0 +1,50 @@
+@use "@/styles/foundation/mixin" as mixin;
+/* Hero
+   ----------------------------------------------------------------- */
+.c-hero {
+  padding-block: var(--spacing-12) var(--spacing-25);
+  @include mixin.mq("md") {
+    padding-block: var(--spacing-14) var(--spacing-28);
+  }
+  @include mixin.mq("lg") {
+    padding-block: var(--spacing-15) var(--spacing-30);
+  }
+  &__title {
+    display: flex;
+    flex-direction: column;
+    font-weight: var(--font-weight-700);
+    gap: var(--spacing-5);
+    @include mixin.mq("md") {
+      gap: var(--spacing-6);
+    }
+    @include mixin.mq("lg") {
+      gap: var(--spacing-8);
+    }
+  }
+  &__heading {
+    letter-spacing: var(--tracking-base);
+    font-family: var(--font-secondary);
+    font-size: var(--typo-scale-19);
+    line-height: var(--leading-none);
+    @include mixin.mq("md") {
+      font-size: var(--typo-scale-15);
+    }
+  }
+  &__sub-title {
+    font-size: var(--typo-scale-5);
+
+    letter-spacing: var(--tracking-base);
+  
+  }
+  &__description {
+    font-weight: var(--font-weight-700);
+    line-height: var(--leading-lg);
+    margin-top: var(--spacing-12);
+    @include mixin.mq("md") {
+      margin-top: var(--spacing-14);
+    }
+    @include mixin.mq("lg") {
+      margin-top: var(--spacing-16);
+    }
+  }
+}
