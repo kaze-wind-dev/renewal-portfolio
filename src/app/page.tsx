@@ -1,7 +1,7 @@
 import clsx from "clsx";
 import { WORKS_LIST_LIMIT, TOP_ZENN_LIST_LIMIT } from "@/constants";
 import Button from "@/components/ui/Button";
-import TopWorks from "@/components/sections/topWorks";
+import TopWorks from "@/components/sections/TopWorks";
 import TopArticles from "@/components/sections/TopArticles";
 import TopSkill from "@/components/sections/TopSkill";
 import { getWorksList } from "@/lib/api/microcms";
