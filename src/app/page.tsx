@@ -1,9 +1,10 @@
 import clsx from "clsx";
 import { WORKS_LIST_LIMIT, TOP_ZENN_LIST_LIMIT } from "@/constants";
-import Button from "@/components/ui/Button";
 import TopWorks from "@/components/sections/TopWorks";
 import TopArticles from "@/components/sections/TopArticles";
 import TopSkill from "@/components/sections/TopSkill";
+import TopAbout from "@/components/sections/TopAbout";
+import TopThanks from "@/components/sections/TopThanks";
 import { getWorksList } from "@/lib/api/microcms";
 import { getZennArticles } from "@/lib/api/zennFunctions";
 import styles from "./page.module.scss";
@@ -51,6 +52,8 @@ export default async function Home() {
       <TopWorks works={works} />
       <TopArticles articles={zennArticlesData.articles} />
       <TopSkill />
+      <TopAbout />
+      <TopThanks />
     </>
   );
 }
