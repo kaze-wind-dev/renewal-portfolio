@@ -1,3 +1,4 @@
+import clsx from "clsx";
 import styles from "./index.module.scss";
 
 type CardsContainerProps = {
@@ -6,7 +7,7 @@ type CardsContainerProps = {
 };
 
 const CardsContainer = ({ children, className }: CardsContainerProps) => {
-  return <div className={`${styles["c-cards-container"]} ${className && ''}`}>{children}</div>;
+  return <div className={clsx(styles["c-cards-container"], className)}>{children}</div>;
 };
 
 export default CardsContainer;
