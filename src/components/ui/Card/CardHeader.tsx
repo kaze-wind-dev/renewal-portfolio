@@ -1,19 +1,27 @@
 import Image from "next/image";
 import type { MicroCMSImage } from "microcms-js-sdk";
+import clsx from "clsx";
 import styles from "./index.module.scss";
 
 type CardHeaderProps = {
   title: string;
+  lineClamp?: number;
   thumbnail?: MicroCMSImage;
   emoji?: string;
   children?: React.ReactNode;
 };
 
-const CardHeader = ({ title, thumbnail, emoji, children }: CardHeaderProps) => {
+const CardHeader = ({
+  title,
+  thumbnail,
+  emoji,
+  children,
+  lineClamp = 1,
+}: CardHeaderProps) => {
   return (
-    <header className={`${styles["c-card__header"]}`}>
+    <header className={clsx(styles["c-card__header"])}>
       {thumbnail ? (
-        <figure className={`${styles["c-card__thumbnail"]}`}>
+        <figure className={clsx(styles["c-card__thumbnail"])}>
           <Image
             src={thumbnail?.url || `/images/no_image.jpg`}
             width={thumbnail?.height || 640}
@@ -23,9 +31,9 @@ const CardHeader = ({ title, thumbnail, emoji, children }: CardHeaderProps) => {
           />
         </figure>
       ) : emoji ? (
-        <div className={`${styles["c-card__emoji"]}`}>{emoji}</div>
+        <div className={clsx(styles["c-card__emoji"])}>{emoji}</div>
       ) : (
-        <figure className={`${styles["c-card__thumbnail"]}`}>
+        <figure className={clsx(styles["c-card__thumbnail"])}>
           <Image
             src={`/images/no_image.jpg`}
             width={640}
@@ -35,7 +43,14 @@ const CardHeader = ({ title, thumbnail, emoji, children }: CardHeaderProps) => {
           />
         </figure>
       )}
-      <h3 className={`${styles["c-card__title"]}`}>{title}</h3>
+      <h3
+        className={clsx(
+          styles["c-card__title"],
+          styles[`line-clamp-${lineClamp}`]
+        )}
+      >
+        {title}
+      </h3>
       {children}
     </header>
   );

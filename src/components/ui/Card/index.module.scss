@@ -66,7 +66,12 @@
     font-weight: var(--font-weight-700);
     letter-spacing: var(--tracking-base);
     font-size: var(--typo-scale-3);
-    @include mixin.lineClamp(1);
+    &.line-clamp-1 {
+      @include mixin.lineClamp(1);
+    }
+    &.line-clamp-2 {
+      @include mixin.lineClamp(2);
+    }
   }
   &__description {
     width: 100%;
