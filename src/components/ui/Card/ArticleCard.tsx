@@ -19,7 +19,7 @@ const ArticleCard = ({ article }: ArticleCardProps) => {
         target="_blank"
         rel="noopener noreferrer"
       >
-        <CardHeader title={article.title} emoji={article.emoji}></CardHeader>
+        <CardHeader title={article.title} emoji={article.emoji} lineClamp={2}></CardHeader>
         <CardBody>
           <div className={`${styles["c-card__zenn"]}`}>
             <Image
