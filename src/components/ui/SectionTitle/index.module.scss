@@ -21,29 +21,17 @@
     letter-spacing: var(--tracking-xs);
     font-family: var(--font-secondary);
     line-height: var(--leading-none);
-    font-size: var(--typo-scale-16);
+    font-size: var(--typo-scale-18);
     @include mixin.mq("md") {
-      font-size: var(--typo-scale-15);
+      font-size: var(--typo-scale-14);
 
     }
-    //   font-size: var(--text-7xl);
-    // }
-    // @include mixin.mq("lg") {
-    //   font-size: var(--text-8xl);
-    //   // font-variant: ;
-    // }
   }
   &__text {
-    letter-spacing: var(--tracking-base);
-    font-size: var(--typo-scale-6);
+    letter-spacing: var(--tracking-md);
+    font-size: var(--typo-scale-4);
     line-height: var(--leading-base);
-
-    // @include mixin.mq("md") {
-    //   font-size: var(--text-xl);
-    // }
-    // @include mixin.mq("lg") {
-    //   font-size: var(--text-2xl);
-    // }
+    font-weight: var(--font-weight-700);
   }
   &--center {
     align-items: center;
