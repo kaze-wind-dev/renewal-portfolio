@@ -35,8 +35,8 @@
   @for $i from 1 through 30 {
     --spacing-#{$i}: #{0.25rem * $i};
   }
-  --section-margin-top: var(--spacing-30);
-  --section-padding-block: var(--spacing-30);
+  --section-margin-top: var(--spacing-25);
+  --section-padding-block: var(--spacing-25);
   /* fontSize */
   --font-size-base: 0.875rem; //14px
   --typo-scale--3: #{function.calcTypoScale(14, -3, 1.075)}; //12px
@@ -94,8 +94,8 @@
     --icon-link-width: 48px;
     --icon-link-height: 48px;
     --icon-gutter: 16px;
-    
-    --section-margin-top: var(--spacing-25);
+    --section-margin-top: var(--spacing-28);
+    --section-padding-block: var(--spacing-28);
     // --section-padding-block: ;
     /* fontSize */
     --typo-scale--3: #{function.calcTypoScale(14, -3, 1.125)}; /*10px*/
@@ -128,7 +128,7 @@
     /* logo */
     --logo-text-size: 4.375rem;
     --section-margin-top: var(--spacing-30);
-
+    --section-padding-block: var(--spacing-30);
     /* fontSize */
     --font-size-base: 1rem; //16px
     --typo-scale--3: #{function.calcTypoScale(16, -3, 1.125)}; /*11px*/
