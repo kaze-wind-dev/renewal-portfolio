@@ -51,7 +51,7 @@
     border-radius: 8px;
     text-align: center;
     place-content: center;
-    font-size: var(--typo-scale-12);
+    font-size: 3.5rem;
     background: linear-gradient(
       135deg,
       var(--color-fifth),
@@ -65,7 +65,7 @@
     width: 100%;
     font-weight: var(--font-weight-700);
     letter-spacing: var(--tracking-base);
-    font-size: var(--typo-scale-2);
+    font-size: var(--typo-scale-3);
     @include mixin.lineClamp(1);
   }
   &__description {
@@ -85,12 +85,6 @@
   }
   &__period {
     margin-top: var(--spacing-2);
-  }
-  &__time {
-    // margin-top: var(--spacing-1);
-    // @include mixin.mq("md") {
-    //   margin-top: var(--spacing-1);
-    // }
   }
   &__technology-stack {
     margin-top: var(--spacing-3);
