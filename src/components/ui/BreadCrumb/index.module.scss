@@ -23,6 +23,7 @@
     background-color: var(--color-fifth);
     margin-left: auto;
     width: fit-content;
+    max-width: 100%;
     @include mixin.mq("lg") {
       gap: 0px var(--spacing-6);
       padding-block: var(--spacing-2);
@@ -34,8 +35,8 @@
     font-size: var(--typo-scale--1);
     font-weight: var(--font-weight-700);
     letter-spacing: var(--tracking-base);
-
     &:not(:last-child) {
+      flex-shrink: 0;
       position: relative;
       z-index: 1;
     }
