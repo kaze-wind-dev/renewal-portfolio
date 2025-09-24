@@ -15,7 +15,6 @@ const CategoryFilter = ({
   basePath = "works",
   currentId,
 }: CategoryFilterProps) => {
-
   return (
     <ul className={`${styles["c-categoryFilter"]}`}>
       {currentId ? (
@@ -24,7 +23,7 @@ const CategoryFilter = ({
             className={`${styles["c-categoryFilter__link"]}`}
             href={`/${basePath}`}
           >
-            ALL
+            すべてのカテゴリー
           </Link>
         </li>
       ) : (
@@ -32,7 +31,7 @@ const CategoryFilter = ({
           <span
             className={`${styles["c-categoryFilter__link"]} ${styles["c-categoryFilter__link--current"]}`}
           >
-            ALL
+            すべてのカテゴリー
           </span>
         </li>
       )}
