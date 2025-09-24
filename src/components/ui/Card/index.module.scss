@@ -1,4 +1,5 @@
 @use "@/styles/foundation/mixin" as mixin;
+@use "@/styles/foundation/function" as function;
 /* Card
    ----------------------------------------------------------------- */
 .c-card {
@@ -71,6 +72,7 @@
       @include mixin.lineClamp(1);
     }
     &.line-clamp-2 {
+      font-size: var(--typo-scale-2);
       @include mixin.lineClamp(2);
     }
   }
@@ -78,16 +80,23 @@
     width: 100%;
     font-weight: var(--font-weight-700);
     letter-spacing: var(--tracking-base);
-    font-size: var(--typo-scale--1);
+    font-size: function.rem(14, 16);
     @include mixin.lineClamp(2);
+    @include mixin.mq("lg") {
+      font-size: function.rem(16, 16);
+    }
   }
   &__period,
   &__time,
   &__technology-stack {
     color: var(--color-neutral-600);
-    font-size: var(--typo-scale--2);
+    font-size: function.rem(12, 16);
+
     font-weight: var(--font-weight-700);
     display: block;
+    @include mixin.mq("lg") {
+      font-size: function.rem(13, 16);
+    }
   }
   &__period {
     margin-top: var(--spacing-2);
