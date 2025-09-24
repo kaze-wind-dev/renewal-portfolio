@@ -1,20 +1,21 @@
 import React from "react";
 import clsx from "clsx";
 import { HiOutlineArrowNarrowRight,HiOutlineArrowNarrowLeft } from "react-icons/hi";
+import type { Splide as SplideInstance } from "@splidejs/splide";
 
 import styles from "./index.module.scss";
 
 type Props = {
-  splideRef: React.RefObject<{ go: (direction: string) => void } | null>;
+  splideRef: React.RefObject<{ splide: SplideInstance } | null>;
   className?: string;
 };
 
 const CustomSplideArrows = ({ splideRef,className }: Props) => {
   const handlePrev = () => {
-    splideRef.current?.go("-1");
+    splideRef.current?.splide.go("-1");
   };
   const handleNext = () => {
-    splideRef.current?.go("+1");
+    splideRef.current?.splide.go("+1");
   };
   return (
     <div className={clsx(styles["c-customSplide-arrows"], className)}>

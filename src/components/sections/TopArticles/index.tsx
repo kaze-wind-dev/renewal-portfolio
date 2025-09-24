@@ -43,7 +43,8 @@ const TopArticles = ({ articles }: Props) => {
   };
  useEffect(() => {
     if (!splideRef.current) return;
-    const splide = splideRef.current.splide;
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    const splide = (splideRef.current as any).splide;
     if (!splide) return;
     const bar = splide.root.querySelector(".topArticles-progress");
     const updateProgress = () => {

@@ -113,11 +113,14 @@ const TopSkill = () => {
 
   useInview<HTMLElement>({ ref, setInview, once: false });
   useEffect(() => {
-    if (splideRef.current && splideRef.current.splide) {
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    if (splideRef.current && (splideRef.current as any).splide) {
       if (inview) {
-        splideRef.current.splide.Components?.AutoScroll.play();
+        // eslint-disable-next-line @typescript-eslint/no-explicit-any
+        (splideRef.current as any).splide.Components?.AutoScroll.play();
       } else {
-        splideRef.current.splide.Components?.AutoScroll.pause();
+        // eslint-disable-next-line @typescript-eslint/no-explicit-any
+        (splideRef.current as any).splide.Components?.AutoScroll.pause();
       }
     }
   }, [inview]);
