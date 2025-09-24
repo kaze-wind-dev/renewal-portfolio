@@ -6,7 +6,7 @@ type CardDescProps = {
 
 const CardDescription = ({ description }: CardDescProps) => {
   return (
-    <p className={`${styles["c-card__description"]}`}>制作期間 {description}</p>
+    <p className={`${styles["c-card__description"]}`}>{description}</p>
   );
 };
 
