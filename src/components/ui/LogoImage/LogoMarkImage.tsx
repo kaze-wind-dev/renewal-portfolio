@@ -13,6 +13,7 @@ const LogoMarkImage = ({ width = 104, height = 104, className }: LogoMarkImagePr
       viewBox="0 0 104 104"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
+      aria-hidden="true"
     >
       <path d="M0 0H103.5V103.586H0V0Z" fill="#F0F9FD" />
       <path
