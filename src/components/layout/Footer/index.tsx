@@ -5,7 +5,7 @@ const Footer = () => {
   return (
     <footer className="l-footer" id="footer">
       <div className="l-footer__inner inner">
-        <nav className="l-footer__nav">
+        <nav className="l-footer__nav" aria-label="フッターナビゲーション">
           <ul className="l-footer__nav-list">
             <li className="l-footer__nav-item">
               <Link href="/" className="l-footer__nav-link">
