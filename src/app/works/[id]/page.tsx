@@ -211,7 +211,7 @@ export default async function WorksDetailPage({ params, searchParams }: Props) {
           </div>
           <div className={`${styles["p-works-detail__button"]}`}>
             <Button href="/works" className="mx-center">
-              一覧に戻る
+              作品一覧に戻る
             </Button>
           </div>
         </div>
