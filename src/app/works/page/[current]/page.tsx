@@ -19,7 +19,6 @@ type Props = {
 export default async function WorksListPage({ params }: Props) {
   const {current} = await params;
   const currentNum = parseInt(current as string, 10);
-console.log(currentNum);
   if (Number.isNaN(currentNum) || currentNum < 1) {
     notFound();
   }
