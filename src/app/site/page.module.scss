@@ -1,0 +1,53 @@
+@use "@/styles/foundation/mixin" as mixin;
+/* About
+   ----------------------------------------------------------------- */
+.p-sitemap {
+  padding-block: var(--spacing-12) var(--spacing-24);
+  @include mixin.mq("lg") {
+    padding-block: var(--spacing-15) var(--spacing-30);
+  }
+  &__navigation{
+   max-width: 960px;
+   width: 100%;
+margin-inline: auto;
+  }
+  &__list {
+    display: grid;
+    gap: var(--spacing-3) var(--spacing-5);
+    @include mixin.mq("sm") {
+        grid-template-columns: repeat(2, 1fr);
+        gap: var(--spacing-3) var(--spacing-5);
+  }
+  }
+  &__item {
+  }
+  &__link {
+    display: block;
+    padding-bottom: var(--spacing-3);
+    font-weight: var(--font-weight-700);
+    border-bottom: 1px solid var(--color-neutral-300);
+    transition: .3s;
+    position: relative;
+    z-index: 1;
+    &::after {
+      content: '';
+      width: 6px;
+      height: 8px;
+      background-color: var(--color-neutral-300);
+      position: absolute;
+      top: 50%;
+      right: 0;
+      translate: 0% -50%;
+      clip-path: polygon(100% 50%, 0 0, 0 100%);
+      transition: .3s;
+    }
+    &:hover {
+border-color: var(--color-primary);
+color: var(--color-primary);
+&::after{
+  background-color: var(--color-primary);
+}
+    }
+  }
+  
+}
