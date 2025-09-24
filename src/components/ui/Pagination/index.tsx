@@ -48,8 +48,9 @@ const Pagination = ({
             <Link
               href={`/${basePath}/page/${current - 1}`}
               className={clsx(styles["c-pagination__link"])}
+              aria-label="前のページへ"
             >
-              <HiOutlineArrowNarrowLeft className={clsx(styles["c-pagination__link-arrow"])}/>
+              <HiOutlineArrowNarrowLeft className={clsx(styles["c-pagination__link-arrow"])} aria-hidden="true"/>
             </Link>
           </li>
         )}
@@ -59,6 +60,7 @@ const Pagination = ({
               <Link
                 href={`/${basePath}/page/${page}`}
                 className={clsx(styles["c-pagination__link"])}
+                aria-label={`${page}ページ目へ`}
               >
                 {page}
               </Link>
@@ -68,6 +70,7 @@ const Pagination = ({
                   styles["c-pagination__link"],
                   styles["c-pagination__link--current"]
                 )}
+                aria-label={`${page}ページ目`}
               >
                 {page}
               </span>
@@ -79,8 +82,9 @@ const Pagination = ({
             <Link
               href={`/${basePath}/page/${current + 1}`}
               className={clsx(styles["c-pagination__link"])}
+              aria-label="次のページへ"
             >
-              <HiOutlineArrowNarrowRight className={clsx(styles["c-pagination__link-arrow"])}/>
+              <HiOutlineArrowNarrowRight className={clsx(styles["c-pagination__link-arrow"])} aria-hidden="true"/>
             </Link>
           </li>
         )}
