@@ -1,56 +1,38 @@
-import Link from "next/link";
+import { MAIN_NAVIGATION_LIST, SUB_NAVIGATION_LIST } from "@/constants";
 import IconList from "@/components/ui/IconList";
+import { Navigation } from "@/components/ui/Navigation";
 
 const Footer = () => {
+  const footerNavClassName = {
+    nav: "l-footer__nav",
+    list: "l-footer__nav-list",
+    item: "l-footer__nav-item",
+    link: "l-footer__nav-link",
+    linkCurrent: "l-footer__nav-link--current",
+  };
+  const footerSubNavClassName = {
+    nav: "l-footer__sub-nav",
+    list: "l-footer__sub-nav-list",
+    item: "l-footer__sub-nav-item",
+    link: "l-footer__sub-nav-link",
+    linkCurrent: "l-footer__sub-nav-link--current",
+  };
   return (
     <footer className="l-footer" id="footer">
       <div className="l-footer__inner inner">
-        <nav className="l-footer__nav" aria-label="フッターナビゲーション">
-          <ul className="l-footer__nav-list">
-            <li className="l-footer__nav-item">
-              <Link href="/" className="l-footer__nav-link">
-                Top
-              </Link>
-            </li>
-            <li className="l-footer__nav-item">
-              <Link href="/works" className="l-footer__nav-link">
-                Works
-              </Link>
-            </li>
-            <li className="l-footer__nav-item">
-              <Link href="/articles" className="l-footer__nav-link">
-                Articles
-              </Link>
-            </li>
-            <li className="l-footer__nav-item">
-              <Link href="/about" className="l-footer__nav-link">
-                About
-              </Link>
-            </li>
-            <li className="l-footer__nav-item">
-              <Link href="/contact" className="l-footer__nav-link">
-                Contact
-              </Link>
-            </li>
-          </ul>
-        </nav>
+        <Navigation
+          items={MAIN_NAVIGATION_LIST}
+          className={footerNavClassName}
+          ariaLabel="フッターナビゲーション"
+        />
         <div className="l-footer__icon-list">
           <IconList />
         </div>
-        <nav className="l-footer__sub-nav">
-          <ul className="l-footer__sub-nav-list">
-            <li className="l-footer__sub-nav-item">
-              <Link href="/privacy" className="l-footer__sub-nav-link">
-                Privacy Policy
-              </Link>
-            </li>
-            <li className="l-footer__sub-nav-item">
-              <Link href="/site" className="l-footer__sub-nav-link">
-                Site Map
-              </Link>
-            </li>
-          </ul>
-        </nav>
+        <Navigation
+          items={SUB_NAVIGATION_LIST}
+          className={footerSubNavClassName}
+          ariaLabel="フッターサブナビゲーション"
+        />
         <div className="l-footer__copyright">
           <small>&copy; {new Date().getFullYear()} Kaze</small>
         </div>
