@@ -1,7 +1,9 @@
 "use cache";
 import Link from "next/link";
 import clsx from "clsx";
+import { ALL_NAVIGATION_LIST } from "@/constants";
 import { Breadcrumbs } from "@/components/ui/BreadCrumb";
+import { Navigation } from "@/components/ui/Navigation";
 import styles from "./page.module.scss";
 
 type SiteMapContent = {
@@ -22,32 +24,24 @@ const sitemap = [
   { title: "Privacy Policy", url: "/privacy" },
 ] as SiteMapContentList;
 
-export default async function AboutPage() {
+export default async function SiteMapPage() {
+  const siteMapNavClassName = {
+    nav: styles["p-sitemap__navigation"],
+    list: styles["p-sitemap__list"],
+    item: styles["p-sitemap__item"],
+    link: styles["p-sitemap__link"],
+  };
   return (
     <>
       <Breadcrumbs items={[{ name: "Site Map" }]} />
       <div className="l-container">
         <div className={clsx(styles["p-sitemap"])}>
           <div className="inner">
-            <nav className={clsx(styles["p-sitemap__navigation"])}>
-              <ul className={clsx(styles["p-sitemap__list"])}>
-                {sitemap.map((page) => {
-                  return (
-                    <li
-                      className={clsx(styles["p-sitemap__item"])}
-                      key={page.title}
-                    >
-                      <Link
-                        href={page.url}
-                        className={clsx(styles["p-sitemap__link"])}
-                      >
-                        {page.title}
-                      </Link>
-                    </li>
-                  );
-                })}
-              </ul>
-            </nav>
+          <Navigation
+            items={ALL_NAVIGATION_LIST}
+            className={siteMapNavClassName}
+            ariaLabel="サイトマップナビゲーション"
+          />
           </div>
         </div>
       </div>
