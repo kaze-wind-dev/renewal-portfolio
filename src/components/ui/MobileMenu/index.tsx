@@ -1,13 +1,17 @@
 "use client";
 import Link from "next/link";
 import { useState } from "react";
+import { usePathname } from "next/navigation";
 import clsx from "clsx";
+import { MAIN_NAVIGATION_LIST, SUB_NAVIGATION_LIST } from "@/constants";
+import { isCurrent } from "@/lib/utils/navigation";
 import IconList from "@/components/ui/IconList";
 import styles from "./index.module.scss";
 
 const MobileMenu = () => {
   const [isOpen, setOpen] = useState(false);
   const toggleMenu = () => setOpen(!isOpen);
+  const pathname = usePathname();
 
   return (
     <div className={clsx("l-mobile-menu", styles["c-mobile-menu"])}>
@@ -60,86 +64,58 @@ const MobileMenu = () => {
               aria-label="モバイルメニュー"
             >
               <ul className={styles["c-mobile-menu__nav-list"]}>
-                <li className={styles["c-mobile-menu__nav-item"]}>
-                  <Link
-                    className={styles["c-mobile-menu__nav-link"]}
-                    onClick={toggleMenu}
-                    href="/"
-                  >
-                    <span className={styles["c-mobile-menu__nav-text"]}>
-                      Top
-                    </span>
-                  </Link>
-                </li>
-
-                <li className={styles["c-mobile-menu__nav-item"]}>
-                  <Link
-                    className={styles["c-mobile-menu__nav-link"]}
-                    onClick={toggleMenu}
-                    href="/works"
-                  >
-                    <span className={styles["c-mobile-menu__nav-text"]}>
-                      Works
-                    </span>
-                  </Link>
-                </li>
-                <li className={styles["c-mobile-menu__nav-item"]}>
-                  <Link
-                    className={styles["c-mobile-menu__nav-link"]}
-                    onClick={toggleMenu}
-                    href="/articles"
-                  >
-                    <span className={styles["c-mobile-menu__nav-text"]}>
-                      Articles
-                    </span>
-                  </Link>
-                </li>
-                <li className={styles["c-mobile-menu__nav-item"]}>
-                  <Link
-                    className={styles["c-mobile-menu__nav-link"]}
-                    onClick={toggleMenu}
-                    href="/about"
-                  >
-                    <span className={styles["c-mobile-menu__nav-text"]}>
-                      About
-                    </span>
-                  </Link>
-                </li>
-                <li className={styles["c-mobile-menu__nav-item"]}>
-                  <Link
-                    className={styles["c-mobile-menu__nav-link"]}
-                    onClick={toggleMenu}
-                    href="/contact"
-                  >
-                    <span className={styles["c-mobile-menu__nav-text"]}>
-                      Contact
-                    </span>
-                  </Link>
-                </li>
+                {MAIN_NAVIGATION_LIST.map((item) => {
+                  const isCurrentPath = isCurrent(pathname, item.href);
+                  return (
+                    <li
+                      className={styles["c-mobile-menu__nav-item"]}
+                      key={item.href}
+                    >
+                      <Link
+                        className={clsx(
+                          styles["c-mobile-menu__nav-link"],
+                          isCurrentPath &&
+                            styles["c-mobile-menu__nav-link--current"]
+                        )}
+                        onClick={toggleMenu}
+                        href={item.href}
+                        aria-label={item.label}
+                        aria-current={isCurrentPath ? "page" : undefined}
+                      >
+                        <span className={styles["c-mobile-menu__nav-text"]}>
+                          {item.name}
+                        </span>
+                      </Link>
+                    </li>
+                  );
+                })}
               </ul>
               <ul className={styles["c-mobile-menu__sub-nav-list"]}>
-                <li className={styles["c-mobile-menu__sub-nav-item"]}>
-                  <Link
-                    className={styles["c-mobile-menu__sub-nav-link"]}
-                    onClick={toggleMenu}
-                    href="/privacy"
-                  >
-                    <span className={styles["c-mobile-menu__sub-nav-text"]}>
-                      Privacy Policy
-                    </span>
-                  </Link>
-                </li>
-                <li className={styles["c-mobile-menu__sub-nav-item"]}>
-                  <Link
-                    className={styles["c-mobile-menu__sub-nav-link"]}
-                    onClick={toggleMenu}
-                    href="/site"
-                  >
-                    <span className={styles["c-mobile-menu__sub-nav-text"]}>
-                      Site Map
-                    </span>
-                  </Link>
-                </li>
+                {SUB_NAVIGATION_LIST.map((item) => {
+                  const isCurrentPath = isCurrent(pathname, item.href);
+                  return (
+                    <li
+                      className={styles["c-mobile-menu__sub-nav-item"]}
+                      key={item.href}
+                    >
+                      <Link
+                        className={clsx(
+                          styles["c-mobile-menu__sub-nav-link"],
+                          isCurrentPath &&
+                            styles["c-mobile-menu__sub-nav-link--current"]
+                        )}
+                        onClick={toggleMenu}
+                        href={item.href}
+                        aria-label={item.label}
+                        aria-current={isCurrentPath ? "page" : undefined}
+                      >
+                        <span className={styles["c-mobile-menu__sub-nav-text"]}>
+                          {item.name}
+                        </span>
+                      </Link>
+                    </li>
+                  );
+                })}
               </ul>
             </nav>
             <div className={styles["c-mobile-menu__icon-list"]}>
