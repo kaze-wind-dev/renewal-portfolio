@@ -18,7 +18,7 @@
     justify-content: space-between;
     min-height: 64px;
     @include mixin.mq("md") {
-      padding: 10px calc(5% + 60px) 10px 5%;
+      padding: 10px calc(5% + 64px) 10px 5%;
     }
     @include mixin.mq("lg") {
       padding: 24px 32px;
