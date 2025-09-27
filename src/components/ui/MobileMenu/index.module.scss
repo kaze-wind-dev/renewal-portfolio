@@ -191,7 +191,8 @@
   @include mixin.mq("md") {
     font-size: 1.75rem;
   }
-  &:hover {
+  &:hover,
+  &--current {
     border-color: var(--color-primary);
     color: var(--color-primary);
     &::after {
@@ -242,7 +243,8 @@
   @include mixin.mq("md") {
     font-size: 1.125rem;
   }
-  &:hover {
+  &:hover,
+  &--current {
     border-color: var(--color-primary);
     color: var(--color-primary);
     &::after {
@@ -250,9 +252,6 @@
     }
   }
 }
-
-// .c-mobile-menu__sub-nav-text {
-// }
 
 .c-mobile-menu__buttons {
   margin-top: 48px;
