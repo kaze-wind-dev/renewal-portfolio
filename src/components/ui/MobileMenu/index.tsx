@@ -19,7 +19,8 @@ const MobileMenu = () => {
         onClick={toggleMenu}
         className={clsx(
           styles["c-mobile-menu__toggle"],
-          isOpen && styles["c-mobile-menu__toggle--is-open"]
+          isOpen && styles["c-mobile-menu__toggle--is-open"],
+          "js-mobile-menu-toggle"
         )}
         aria-label={
           isOpen ? "モバイルメニューを閉じる" : "モバイルメニューを開く"

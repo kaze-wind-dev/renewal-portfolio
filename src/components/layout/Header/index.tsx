@@ -14,7 +14,7 @@ const Header = () => {
   };
   return (
     <header className="l-header" id="header">
-      <div className="l-header__inner">
+      <div className="l-header__inner js-header-inner">
         <Logo className="l-header__logo" link={true} />
         <div className="l-header__line">
           <Navigation
@@ -26,8 +26,8 @@ const Header = () => {
             <IconList />
           </div>
         </div>
-        <MobileMenu />
       </div>
+        <MobileMenu />
     </header>
   );
 };
