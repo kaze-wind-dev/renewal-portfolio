@@ -1,6 +1,8 @@
 "use client";
 import { useState, useEffect } from "react";
 import clsx from "clsx";
+import { gsap } from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
 import OpeningAnimation from "@/components/ui/OpeningAnimation";
 import TopWorks from "@/components/sections/TopWorks";
 import TopArticles from "@/components/sections/TopArticles";
@@ -11,16 +13,15 @@ import styles from "./index.module.scss";
 import type { Works } from "@/types/microcms";
 import type { ZennArticleList } from "@/types/zenn";
 
-import { gsap } from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
-
 type Props = {
   works: Works[];
   zennArticlesData: ZennArticleList;
 };
 
 const TopPageClient = ({ works, zennArticlesData }: Props) => {
-  const [showOpening, setShowOpening] = useState(true);
+  const [visited, setVisited] = useState(false);
+
+  const [showOpening, setShowOpening] = useState<boolean>(true);
   useEffect(() => {
     gsap.registerPlugin(ScrollTrigger);
     const header = document.querySelector(".js-header-inner") as HTMLElement;
@@ -33,12 +34,8 @@ const TopPageClient = ({ works, zennArticlesData }: Props) => {
     const fadeText = document.querySelector(
       ".js-hero-fade-text"
     ) as HTMLElement;
-    const scrollBar = document.querySelector(
-      ".js-scroll-bar"
-    ) as HTMLElement;
-    const topHero = document.querySelector(".top-hero") as HTMLElement;
+    const scrollBar = document.querySelector(".js-scroll-bar") as HTMLElement;
     if (!header || !mobileMenuToggle || !fadeText || !scrollBar) return;
-
     if (showOpening) {
       gsap.set(header, {
         opacity: 0,
@@ -54,7 +51,7 @@ const TopPageClient = ({ works, zennArticlesData }: Props) => {
         });
       });
       gsap.set(fadeText, {
-        filter: "blur(10px)",
+        filter: "blur(.25em)",
         opacity: 0,
       });
     }
@@ -102,21 +99,22 @@ const TopPageClient = ({ works, zennArticlesData }: Props) => {
       };
     }
     ScrollTrigger.create({
-        trigger: scrollBar,
-        start: "top bottom",
-        toggleClass: {
-            targets: scrollBar,
-            className: styles["p-topHero__scroll-guide__bar--is-start"]
-        },
+      trigger: scrollBar,
+      start: "top bottom",
+      toggleClass: {
+        targets: scrollBar,
+        className: styles["p-topHero__scroll-guide__bar--is-start"],
+      },
     });
   }, [showOpening]);
-  
+
   return (
     <>
       <OpeningAnimation onComplete={() => setShowOpening(false)} />
-      <section className={clsx(styles["p-topHero"],"top-hero")}>
+
+      <section className={clsx(styles["p-topHero"], "top-hero")}>
         <div className={clsx(styles["p-topHero__inner"], "inner")}>
-          <p className={clsx(styles["p-topHero__en-text"])}>
+          <p className={clsx(styles["p-topHero__en-text"])} aria-hidden="true">
             <span className="js-hero-appear-text">
               <span>From coder to</span>
             </span>
@@ -144,17 +142,23 @@ const TopPageClient = ({ works, zennArticlesData }: Props) => {
             <span className={clsx(styles["p-topHero__scroll-guide__text"])}>
               scroll
             </span>
-            <div className={
-                clsx(styles["p-topHero__scroll-guide__bar"],
-                "js-scroll-bar")}></div>
+            <div
+              className={clsx(
+                styles["p-topHero__scroll-guide__bar"],
+                "js-scroll-bar"
+              )}
+            ></div>
           </div>
         </div>
       </section>
-      <TopWorks works={works} />
-      <TopArticles articles={zennArticlesData.articles} />
-      <TopSkill />
-      <TopAbout />
-      <TopThanks />
+      <TopWorks works={works} showOpening={showOpening} />
+      <TopArticles
+        articles={zennArticlesData.articles}
+        showOpening={showOpening}
+      />
+      <TopSkill showOpening={showOpening} />
+      <TopAbout showOpening={showOpening} />
+      <TopThanks showOpening={showOpening} />
     </>
   );
 };
