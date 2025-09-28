@@ -71,10 +71,10 @@ export default async function AboutPage() {
                 <div className={clsx(styles["p-profile__right"])}>
                   <div className={clsx(styles["p-profile__image"])}>
                     <Image
-                      src="/images/no_image.jpg"
-                      width={360}
-                      height={360}
-                      alt="アバターの画像"
+                      src="/images/profile_image.jpg"
+                      width={600}
+                      height={401}
+                      alt="プロフィール画像"
                       loading="lazy"
                     />
                   </div>

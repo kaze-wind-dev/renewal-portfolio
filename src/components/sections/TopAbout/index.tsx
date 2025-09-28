@@ -120,10 +120,10 @@ const TopAbout = ({ showOpening }: Props) => {
         </Button>
         <div className={clsx(styles["p-topAbout__image"])}>
           <Image
-            src="/images/no_image.jpg"
-            width={360}
-            height={360}
-            alt="アバター画像"
+            src="/images/profile_image.jpg"
+            width={600}
+            height={401}
+            alt="プロフィール画像"
             loading="lazy"
           ></Image>
         </div>
