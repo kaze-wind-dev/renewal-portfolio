@@ -38,7 +38,7 @@ export default async function AboutPage() {
               <div className={clsx(styles["p-profile__left"])}>
                 <div className={clsx(styles["p-profile__name"])}>
                   <h2 className={clsx(styles["p-profile__name-ja"])}>岩本 颯</h2>
-                  <p className={clsx(styles["p-profile__name-en"])}>Iwamoto Hayate</p>
+                  <p className={clsx(styles["p-profile__name-en"])} aria-hidden="true">Iwamoto Hayate</p>
                   <p className={clsx(styles["p-profile__role"])}>コーダー</p>
                 </div>
                 <p className={clsx(styles["p-profile__text"])}>
@@ -77,7 +77,7 @@ export default async function AboutPage() {
         </section>
         <section className={clsx(styles["p-achievement"])}>
           <div className="inner">
-            <SectionTitle heading="Achievement" text="実績" position="left" />
+            <SectionTitle heading="実績" text="Achievement" position="left" />
             <ul className={clsx(styles["p-achievement__list"])}>
               <li className={clsx(styles["p-achievement__list-item"])}>
                 <h3 className={clsx(styles["p-achievement__list-item__title"])}>
@@ -130,8 +130,8 @@ export default async function AboutPage() {
         <section className={clsx(styles["p-skills"])} id="skills">
           <div className="inner">
             <SectionTitle
-              heading="Skills"
-              text="技術・スキル"
+              heading="技術・スキル"
+              text="Skills"
               position="right"
             />
             <div className={clsx(styles["p-skills__items"])}>
@@ -171,8 +171,8 @@ export default async function AboutPage() {
         <section className={clsx(styles["p-experience"])}>
           <div className="inner">
             <SectionTitle
-              heading="Experience"
-              text="経歴・経験"
+                heading="経歴・経験"
+              text="Experience"
               position="left"
             />
             <dl className={clsx(styles["p-experience__list"])}>

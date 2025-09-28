@@ -25,8 +25,8 @@ export default async function WorkListPage() {
           <div className="inner">
             <SectionTitle
               className="sr-only"
-              heading={<>Works</>}
-              text={<>作品一覧</>}
+              heading={<>作品一覧</>}
+              text={<>Works</>}
               position="left"
             />
             <CategoryFilter categories={categories} basePath="works" />
