@@ -1,9 +1,11 @@
 "use client";
 import Link from "next/link";
-import clsx from "clsx";
-import { HiOutlineArrowNarrowRight } from "react-icons/hi";
 import { useRef, useEffect } from "react";
+import clsx from "clsx";
+import gsap from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { Splide, SplideTrack, SplideSlide } from "@splidejs/react-splide";
+import { HiOutlineArrowNarrowRight } from "react-icons/hi";
 import SectionTitle from "@/components/ui/SectionTitle";
 import ArticleCard from "@/components/ui/Card/ArticleCard";
 import CustomSplideArrows from "@/components/ui/CustomSprideArrows";
@@ -12,9 +14,12 @@ import styles from "./index.module.scss";
 
 type Props = {
   articles: ZennArticle[];
+  showOpening: boolean;
 };
-const TopArticles = ({ articles }: Props) => {
+const TopArticles = ({ articles, showOpening }: Props) => {
   const splideRef = useRef(null);
+  const triggerRef = useRef<HTMLElement>(null);
+
   const splideOptions = {
     type: "loop",
     focus: "left",
@@ -41,7 +46,8 @@ const TopArticles = ({ articles }: Props) => {
       },
     },
   };
- useEffect(() => {
+  useEffect(() => {
+    /* splide*/
     if (!splideRef.current) return;
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
     const splide = (splideRef.current as any).splide;
@@ -54,18 +60,96 @@ const TopArticles = ({ articles }: Props) => {
     };
     updateProgress();
     splide.on("mounted move", updateProgress);
-    return () => {
-      splide.off("mounted move", updateProgress);
-    };
-  }, []);
+    /* gsap */
+    gsap.registerPlugin(ScrollTrigger);
+    const animationTrigger = triggerRef.current;
+    if (!animationTrigger) return;
+    const sectionTitleHeading = animationTrigger.querySelector(
+      ".js-section-title-heading"
+    ) as HTMLElement;
+    const sectionTitleText = animationTrigger.querySelector(
+      ".js-section-title-text > span"
+    ) as HTMLElement;
+    const fadeUpElements = animationTrigger.querySelectorAll(
+      ".js-fade-up"
+    ) as NodeListOf<HTMLElement>;
+   
+    if (
+      !sectionTitleHeading ||
+      !sectionTitleText ||
+      !animationTrigger ||
+      !fadeUpElements
+    )
+      return;
+    if (showOpening) {
+      updateProgress();
+      splide.on("mounted move", updateProgress);
+      gsap.set(sectionTitleHeading, {
+        filter: "blur(.5em)",
+        opacity: 0,
+      });
+      gsap.set(sectionTitleText, {
+        y: "100%",
+        opacity: 0,
+      });
+      fadeUpElements.forEach((el) => {
+        gsap.set(el, {
+          y: "20px",
+          opacity: 0,
+        });
+      });
+    }
+    if (!showOpening) {
+      const tl = gsap
+        .timeline({
+          scrollTrigger: {
+            trigger: animationTrigger,
+            start: "20% 80%",
+            end: "bottom top",
+            toggleActions: "play none none none",
+          },
+        })
+        .to(sectionTitleText, {
+          y: 0,
+          opacity: 1,
+          duration: 0.6,
+        })
+        .to(
+          sectionTitleHeading,
+          {
+            filter: "blur(0px)",
+            opacity: 1,
+            duration: 0.6,
+          },
+          "-=0.3"
+        )
+        .add(() => {
+          fadeUpElements.forEach((el, i) => {
+            gsap.to(el, {
+              y: 0,
+              opacity: 1,
+              duration: 0.6,
+              delay: 0.2 * i,
+              ease: "power2.inOut",
+            });
+          });
+        }, "-=0.3");
+      return () => {
+        /* splide*/
+        splide.off("mounted move", updateProgress);
+        /* gsap */
+        tl.kill();
+      };
+    }
+  }, [showOpening]);
 
   return (
-    <section className={clsx(styles["p-topArticles"])}>
+    <section className={clsx(styles["p-topArticles"])} ref={triggerRef}>
       <div className={clsx(styles["p-topArticles__inner"])}>
         <SectionTitle
           className={clsx(styles["p-topArticles__title"])}
-          heading={<>Articles</>}
-          text={<>投稿記事</>}
+          heading={<>投稿記事</>}
+          text={<>Articles</>}
           position="left"
         />
 
@@ -77,7 +161,12 @@ const TopArticles = ({ articles }: Props) => {
           ref={splideRef}
           hasTrack={false}
         >
-          <SplideTrack className={clsx(styles["p-topArticles__slider-track"])}>
+          <SplideTrack
+            className={clsx(
+              styles["p-topArticles__slider-track"],
+              "js-fade-up"
+            )}
+          >
             {articles.map((article) => {
               return (
                 <SplideSlide
@@ -90,7 +179,7 @@ const TopArticles = ({ articles }: Props) => {
             })}
           </SplideTrack>
 
-           <div className={clsx(styles["p-topArticles__actions"])}>
+          <div className={clsx(styles["p-topArticles__actions"], "js-fade-up")}>
             <div className={clsx(styles["p-topArticles__controls"])}>
               <CustomSplideArrows
                 splideRef={splideRef}
@@ -105,15 +194,17 @@ const TopArticles = ({ articles }: Props) => {
                 ></div>
               </div>
             </div>
-            <Link href="/articles" className={styles["p-topArticles__moreLink"]}>
-              一覧を見る
+            <Link
+              href="/articles"
+              className={styles["p-topArticles__moreLink"]}
+            >
+              記事一覧を見る
               <HiOutlineArrowNarrowRight
                 className={clsx(styles["p-topArticles__moreLink-arrow"])}
               />
             </Link>
           </div>
         </Splide>
-
       </div>
     </section>
   );
