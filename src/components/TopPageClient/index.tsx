@@ -19,7 +19,6 @@ type Props = {
 };
 
 const TopPageClient = ({ works, zennArticlesData }: Props) => {
-  const [visited, setVisited] = useState(false);
 
   const [showOpening, setShowOpening] = useState<boolean>(true);
   useEffect(() => {
@@ -111,7 +110,6 @@ const TopPageClient = ({ works, zennArticlesData }: Props) => {
   return (
     <>
       <OpeningAnimation onComplete={() => setShowOpening(false)} />
-
       <section className={clsx(styles["p-topHero"], "top-hero")}>
         <div className={clsx(styles["p-topHero__inner"], "inner")}>
           <p className={clsx(styles["p-topHero__en-text"])} aria-hidden="true">
