@@ -2,7 +2,7 @@
 /* About
    ----------------------------------------------------------------- */
 .p-profile {
-  padding-block:var(--section-padding-block);
+  padding-block:calc(var(--section-padding-block) / 2) var(--section-padding-block);
 
   &__container {
     display: flex;

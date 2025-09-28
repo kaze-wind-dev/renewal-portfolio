@@ -3,6 +3,7 @@
    ----------------------------------------------------------------- */
 .c-hero {
   padding-block: var(--spacing-12) var(--spacing-25);
+  order: 2;
   @include mixin.mq("md") {
     padding-block: var(--spacing-14) var(--spacing-28);
   }
@@ -31,6 +32,10 @@
     font-family: var(--font-secondary);
     font-size: var(--typo-scale-19);
     line-height: var(--leading-none);
+    overflow: hidden;
+    >span {
+      display: block;
+    }
     @include mixin.mq("md") {
       font-size: var(--typo-scale-15);
     }
