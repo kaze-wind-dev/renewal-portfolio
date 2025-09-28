@@ -2,8 +2,8 @@
 import styles from "./index.module.scss";
 
 export interface HeroProps {
-  heading: string;
   subTitle: string;
+  heading: string;
   pageDescription?: React.ReactNode;
   className?: string;
 };
@@ -13,8 +13,8 @@ const Hero = ({ heading, subTitle, pageDescription, className }: HeroProps) => {
     <section className={`l-hero ${styles["c-hero"]} ${className || ""}`}>
       <div className={`${styles["c-hero__inner"]} inner`}>
         <hgroup className={`${styles["c-hero__title"]}`}>
-          <h1 className={`${styles["c-hero__heading"]}`}>{heading}</h1>
-          <p className={`${styles["c-hero__sub-title"]}`}>{subTitle}</p>
+          <h1 className={`${styles["c-hero__heading"]}`}>{subTitle}</h1>
+          <p className={`${styles["c-hero__sub-title"]}`} aria-hidden="true">{heading}</p>
         </hgroup>
         {pageDescription && (
         <p className={`${styles["c-hero__description"]}`}>{pageDescription}</p>
