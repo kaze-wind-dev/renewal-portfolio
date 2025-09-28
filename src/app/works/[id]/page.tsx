@@ -7,6 +7,7 @@ import { GoLink } from "react-icons/go";
 import Button from "@/components/ui/Button";
 import Category from "@/components/ui/Category";
 import { Breadcrumbs } from "@/components/ui/BreadCrumb";
+import FadeUpClient from "@/components/FadeUpClient";
 
 import styles from "./index.module.scss";
 
@@ -63,6 +64,9 @@ export default async function WorksDetailPage({ params, searchParams }: Props) {
           { name: data.title },
         ]}
       />
+      <FadeUpClient>
+        <div className="fadeup-container">
+          
       <article className={`${styles["p-works-detail"]}`}>
         <div className="inner">
           <div className={styles["p-works-detail__category"]}>
@@ -216,6 +220,8 @@ export default async function WorksDetailPage({ params, searchParams }: Props) {
           </div>
         </div>
       </article>
+        </div>
+      </FadeUpClient>
     </main>
   );
 }

@@ -12,6 +12,7 @@ import CardsContainer from "@/components/ui/CardsContainer";
 import CategoryFilter from "@/components/ui/CategoryFilter";
 import Pagination from "@/components/ui/Pagination";
 import WorksListLayout from "@/components/layout/WorksLayout/WorksListLayout";
+import FadeUpClient from "@/components/FadeUpClient";
 import styles from "../../../../page.module.scss";
 
 type Props = {
@@ -22,7 +23,7 @@ type Props = {
 };
 
 export default async function WorkListPage({ params }: Props) {
-  const {id, current} = await params;
+  const { id, current } = await params;
   const currentNum = parseInt(current as string, 10);
 
   if (Number.isNaN(currentNum) || currentNum < 1) {
@@ -43,35 +44,36 @@ export default async function WorkListPage({ params }: Props) {
       <Breadcrumbs
         items={[{ name: "Works", href: "/works" }, { name: category.name }]}
       />
-
-      <div className="l-container">
-        <div className={`${styles["p-works"]}`}>
-          <div className="inner">
-            <CategoryFilter
-              categories={categories}
-              basePath="works"
-              currentId={id}
-            />
-            {works.length === 0 ? (
-              <p className="nopost-message">現在投稿はございません。</p>
-            ) : (
-              <>
-                <CardsContainer>
-                  {works.map((article) => (
-                    <WorksCard works={article} key={article.id} />
-                  ))}
-                </CardsContainer>
-                <Pagination
-                  totalCount={totalCount}
-                  perpage={WORKS_LIST_LIMIT}
-                  basePath={`works/category/${id}`}
-                  current={currentNum}
-                />
-              </>
-            )}
+      <FadeUpClient>
+        <div className="l-container fadeup-container">
+          <div className={`${styles["p-works"]}`}>
+            <div className="inner">
+              <CategoryFilter
+                categories={categories}
+                basePath="works"
+                currentId={id}
+              />
+              {works.length === 0 ? (
+                <p className="nopost-message">現在投稿はございません。</p>
+              ) : (
+                <>
+                  <CardsContainer>
+                    {works.map((article) => (
+                      <WorksCard works={article} key={article.id} />
+                    ))}
+                  </CardsContainer>
+                  <Pagination
+                    totalCount={totalCount}
+                    perpage={WORKS_LIST_LIMIT}
+                    basePath={`works/category/${id}`}
+                    current={currentNum}
+                  />
+                </>
+              )}
+            </div>
           </div>
         </div>
-      </div>
+      </FadeUpClient>
     </WorksListLayout>
   );
 }

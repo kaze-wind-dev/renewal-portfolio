@@ -4,6 +4,7 @@ import clsx from "clsx";
 import { ALL_NAVIGATION_LIST } from "@/constants";
 import { Breadcrumbs } from "@/components/ui/BreadCrumb";
 import { Navigation } from "@/components/ui/Navigation";
+import FadeUpClient from "@/components/FadeUpClient";
 import styles from "./page.module.scss";
 
 type SiteMapContent = {
@@ -34,17 +35,19 @@ export default async function SiteMapPage() {
   return (
     <>
       <Breadcrumbs items={[{ name: "Site Map" }]} />
-      <div className="l-container">
-        <div className={clsx(styles["p-sitemap"])}>
-          <div className="inner">
-          <Navigation
-            items={ALL_NAVIGATION_LIST}
-            className={siteMapNavClassName}
-            ariaLabel="サイトマップナビゲーション"
-          />
+      <FadeUpClient>
+        <div className="l-container fadeup-container">
+          <div className={clsx(styles["p-sitemap"])}>
+            <div className="inner">
+              <Navigation
+                items={ALL_NAVIGATION_LIST}
+                className={siteMapNavClassName}
+                ariaLabel="サイトマップナビゲーション"
+              />
+            </div>
           </div>
         </div>
-      </div>
+      </FadeUpClient>
     </>
   );
 }
