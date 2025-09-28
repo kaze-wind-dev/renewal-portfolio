@@ -1,0 +1,113 @@
+@use "@/styles/foundation/mixin" as mixin;
+/* Notfound
+   ----------------------------------------------------------------- */
+.p-notfound {
+  padding-block:calc(var(--section-padding-block) / 2) var(--section-padding-block);
+
+  
+  &__links {
+    
+    display: flex;
+    flex-wrap: wrap;
+
+    gap: var(--spacing-4);
+    width: 100%;
+
+    @include mixin.mq("md") {
+      gap: var(--spacing-5);
+    }
+    @include mixin.mq("lg") {
+      gap: var(--spacing-8);
+    }
+  }
+  &__button {
+    max-width: 320px;
+    width: 100%;
+  }
+}
+
+
+.c-breadcrumb {
+  margin-top: var(--spacing-3);
+  margin-inline: auto;
+  max-width: 1280px;
+  width: 90%;
+  @include mixin.mq("lg") {
+    margin-top: var(--spacing-4);
+  }
+  &__list {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    white-space: nowrap;
+    gap: 0px var(--spacing-4);
+    padding-block: var(--spacing-1);
+    padding-inline: var(--spacing-4);
+    border-radius: var(--spacing-10);
+    background-color: var(--color-fifth);
+    margin-left: auto;
+    width: fit-content;
+    max-width: 100%;
+    @include mixin.mq("lg") {
+      gap: 0px var(--spacing-6);
+      padding-block: var(--spacing-2);
+    }
+  }
+  &__item {
+    text-wrap: nowrap;
+    color: var(--color-neutral-900);
+    font-size: var(--typo-scale--1);
+    font-weight: var(--font-weight-700);
+    letter-spacing: var(--tracking-base);
+    &:not(:last-child) {
+      flex-shrink: 0;
+      position: relative;
+      z-index: 1;
+    }
+
+    &:not(:last-child)::after {
+      content: "";
+      width: 1px;
+      height: 1em;
+      position: absolute;
+      z-index: 1;
+      right: -1em;
+      top: 50%;
+      translate: -50% -50%;
+      rotate: 15deg;
+      background: var(--color-neutral-900);
+      right: calc(-1 * var(--spacing-2));
+      @include mixin.mq("lg") {
+        right: calc(-1 * var(--spacing-3));
+      }
+    }
+
+    &:last-child {
+      overflow: hidden;
+      text-overflow: ellipsis;
+      width: fit-content;
+    }
+  }
+  &__link {
+    transition: 0.3s;
+    border-bottom: 1px solid transparent;
+
+    &:hover {
+      color: var(--color-primary);
+      border-color: var(--color-primary);
+    }
+
+    &--home {
+      display: flex;
+      align-items: center;
+    }
+  }
+  &__home-icon {
+    width: 16px;
+    height: 16px;
+    margin-right: 2px;
+    @include mixin.mq("lg") {
+      margin-right: 4px;
+    }
+  }
+}
