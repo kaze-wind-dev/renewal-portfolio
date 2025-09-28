@@ -4,7 +4,7 @@
 
 .c-sectionTitle {
   display: flex;
-  flex-direction: column;
+  flex-direction: column-reverse;
   width: fit-content;
   font-weight: var(--font-weight-700);
   gap: 12px;
@@ -18,20 +18,25 @@
     margin-bottom: var(--spacing-20);
   }
   &__heading {
-    letter-spacing: var(--tracking-xs);
-    font-family: var(--font-secondary);
-    line-height: var(--leading-none);
-    font-size: var(--typo-scale-18);
-    @include mixin.mq("md") {
-      font-size: var(--typo-scale-14);
-
-    }
-  }
-  &__text {
     letter-spacing: var(--tracking-md);
     font-size: var(--typo-scale-4);
     line-height: var(--leading-base);
     font-weight: var(--font-weight-700);
+  }
+  &__text {
+    letter-spacing: var(--tracking-xs);
+    font-family: var(--font-secondary);
+    line-height: var(--leading-none);
+    font-size: var(--typo-scale-18);
+    overflow: hidden;
+    >span{
+      display: block;
+    }
+    @include mixin.mq("md") {
+      font-size: var(--typo-scale-14);
+  
+    }
+   
   }
   &--center {
     align-items: center;

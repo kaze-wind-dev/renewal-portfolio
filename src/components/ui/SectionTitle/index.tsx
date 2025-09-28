@@ -21,8 +21,8 @@ const SectionTitle = ({
 
   return (
     <hgroup className={clsx(parentClasses, className)}>
-      <h2 className={clsx(styles['c-sectionTitle__heading'])}>{heading}</h2>
-      <p className={clsx(styles['c-sectionTitle__text'])}>{text}</p>
+      <h2 className={clsx(styles['c-sectionTitle__heading'], "js-section-title-heading")}>{heading}</h2>
+      <p className={clsx(styles['c-sectionTitle__text'], "js-section-title-text")} aria-hidden="true"><span>{text}</span></p>
     </hgroup>
   );
 };
