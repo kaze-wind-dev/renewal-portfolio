@@ -99,7 +99,7 @@ const TopAbout = ({ showOpening }: Props) => {
           className={clsx(styles["p-topAbout__title"])}
           heading={<>私について</>}
           text={<>About me</>}
-          position="center"
+          position="left"
         />
         <div className={clsx(styles["p-topAbout__text-area"])}>
           <p className={clsx(styles["p-topAbout__text"], "js-fade-up")}>
