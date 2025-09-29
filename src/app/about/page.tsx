@@ -76,6 +76,7 @@ export default async function AboutPage() {
                       height={401}
                       alt="プロフィール画像"
                       loading="lazy"
+                      fetchPriority="high"
                     />
                   </div>
                   <IconList />
