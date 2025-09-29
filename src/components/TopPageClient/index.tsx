@@ -138,7 +138,7 @@ const TopPageClient = ({ works, zennArticlesData }: Props) => {
             <br />
             3年間の経験を活かし、
             <br />
-            次のステージを目指してしています。
+            次のステージを目指しています。
           </h1>
           <div
             className={clsx(styles["p-topHero__scroll-guide"])}
