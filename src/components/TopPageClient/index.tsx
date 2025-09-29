@@ -19,9 +19,14 @@ type Props = {
 };
 
 const TopPageClient = ({ works, zennArticlesData }: Props) => {
-
   const [showOpening, setShowOpening] = useState<boolean>(true);
   useEffect(() => {
+    const hasViewed = sessionStorage.getItem("hasViewed");
+    if (hasViewed) {
+      setShowOpening(false);
+    } else {
+      sessionStorage.setItem("hasViewed", "true");
+    }
     gsap.registerPlugin(ScrollTrigger);
     const header = document.querySelector(".js-header-inner") as HTMLElement;
     const mobileMenuToggle = document.querySelector(
@@ -109,7 +114,9 @@ const TopPageClient = ({ works, zennArticlesData }: Props) => {
 
   return (
     <>
-      <OpeningAnimation onComplete={() => setShowOpening(false)} />
+      {showOpening && (
+        <OpeningAnimation onComplete={() => setShowOpening(false)} />
+      )}
       <section className={clsx(styles["p-topHero"], "top-hero")}>
         <div className={clsx(styles["p-topHero__inner"], "inner")}>
           <p className={clsx(styles["p-topHero__en-text"])} aria-hidden="true">
