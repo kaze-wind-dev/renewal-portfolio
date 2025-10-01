@@ -30,6 +30,7 @@ const CategoryFilter = ({
         <li className={`${styles["c-categoryFilter__btn"]}`}>
           <span
             className={`${styles["c-categoryFilter__link"]} ${styles["c-categoryFilter__link--current"]}`}
+            aria-current="page"
           >
             すべてのカテゴリー
           </span>
@@ -43,6 +44,7 @@ const CategoryFilter = ({
           >
             <span
               className={`${styles["c-categoryFilter__link"]} ${styles["c-categoryFilter__link--current"]}`}
+              aria-current="page"
             >
               {category.name}
             </span>

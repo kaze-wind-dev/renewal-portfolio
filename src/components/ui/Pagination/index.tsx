@@ -71,6 +71,7 @@ const Pagination = ({
                   styles["c-pagination__link--current"]
                 )}
                 aria-label={`${page}ページ目`}
+                aria-current="page"
               >
                 {page}
               </span>

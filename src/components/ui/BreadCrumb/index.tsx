@@ -33,7 +33,7 @@ export const Breadcrumbs = ({items}: BreadcrumbsProps) => {
                   {item.name}
                 </Link>
               ) : (
-                item.name
+                <span aria-current="page">{item.name}</span>
               )}
             </li>
           );
