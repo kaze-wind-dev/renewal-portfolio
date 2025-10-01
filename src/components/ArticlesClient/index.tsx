@@ -81,9 +81,9 @@ export default function ArticlesClient({
     updateURL(sortKey, newOrder, searchQuery);
   };
 
-  const handleSelectArea = (e: React.MouseEvent) => {
+  const handleSelectArea = (e: React.MouseEvent | React.KeyboardEvent) => {
     e.stopPropagation();
-    setIsSelectAreaOpen(!isSelectAreaOpen);
+    setIsSelectAreaOpen(!isSelectAreaOpen); 
   };
 
   const handleSearch = (e: React.ChangeEvent<HTMLInputElement>) => {

@@ -25,11 +25,24 @@ const Sort = ({
 }: SortProps) => {
   return (
     <div className={clsx(styles["c-sort"], className)}>
-      <div className={clsx(styles["c-sort-select"])} onClick={handleSelectArea}>
+      <div className={clsx(styles["c-sort-select"])} 
+       role="button"
+       tabIndex={0}
+       aria-haspopup="listbox"
+       aria-expanded={isSelectAreaOpen}
+       onClick={handleSelectArea}
+       onKeyDown={(e) => {
+        if (e.key === 'Enter' || e.key === ' ') {
+          e.preventDefault();
+          handleSelectArea(e);
+        }
+      }}
+      >
         <div
           className={clsx(styles["c-sort-select__label"], {
             [styles["c-sort-select__label--active"]]: isSelectAreaOpen,
           })}
+         
         >
           並び替え
           <PiArrowsDownUp
@@ -42,6 +55,7 @@ const Sort = ({
           sortSelectAreaRef={sortSelectAreaRef}
           handleSort={handleSort}
           sortKey={sortKey}
+
         />
       </div>
       <SortOrderButton onClick={handleOrder} order={order} />
