@@ -47,6 +47,7 @@ const Sort = ({
           並び替え
           <PiArrowsDownUp
             className={clsx(styles["c-sort-select__label-icon"])}
+            aria-hidden="true"
           />
         </div>
         <SortArea

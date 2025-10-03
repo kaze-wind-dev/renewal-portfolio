@@ -20,6 +20,7 @@ const SortOrderButton = ({ onClick, order }: SortOrderButtonProps) => {
           className={clsx(styles["c-sort__order-button__icon"], { 
           [styles["c-sort__order-button__icon--asc"]]: order === "asc",
         })}
+        aria-hidden="true"
       />
     </button>
   );

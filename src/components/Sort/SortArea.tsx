@@ -46,7 +46,7 @@ const SortArea = ({
         aria-label="並び替えのメニューを閉じる"
         tabIndex={0}
       >
-        <MdClose className={clsx(styles["c-sort__close-button__icon"])} />
+        <MdClose className={clsx(styles["c-sort__close-button__icon"])} aria-hidden="true" />
       </button>
       {selectAreaOptions.map((options) => {
         const isCurrent = options.value === sortKey;
