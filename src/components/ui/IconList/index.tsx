@@ -7,7 +7,6 @@ import styles from "./index.module.scss";
 
 const IconList = () => {
   return (
-    <nav className={clsx(styles.iconListNav)} aria-label="ソーシャルリンク">
       <ul className={clsx(styles.iconList)}>
         <li className={clsx(styles.iconList__item)}>
           <Link
@@ -17,7 +16,7 @@ const IconList = () => {
             rel="noopener noreferrer"
             aria-label="GitHub"
           >
-            <FaGithub className={clsx(styles.iconList__icon)}/>
+            <FaGithub className={clsx(styles.iconList__icon)} aria-hidden="true"/>
           </Link>
         </li>
         <li className={clsx(styles.iconList__item)}>
@@ -31,11 +30,11 @@ const IconList = () => {
             <SiZenn
               className={clsx(styles.iconList__icon)}
               color="#3EA8FF"
+              aria-hidden="true"
             />
           </Link>
         </li>
       </ul>
-    </nav>
   );
 };
 
