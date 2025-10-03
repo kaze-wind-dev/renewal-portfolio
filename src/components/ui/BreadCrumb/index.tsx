@@ -19,7 +19,7 @@ export const Breadcrumbs = ({items}: BreadcrumbsProps) => {
       <ul className={clsx(styles["c-breadcrumb__list"])}>
         <li className={clsx(styles["c-breadcrumb__item"])}>
           <Link href="/" className={clsx(styles["c-breadcrumb__link"], styles["c-breadcrumb__link--home"])}>
-            <TiHome className={clsx(styles["c-breadcrumb__home-icon"])}/>Top
+            <TiHome className={clsx(styles["c-breadcrumb__home-icon"])} aria-hidden="true" />Top
           </Link>
         </li>
         {items.map((item) => {
