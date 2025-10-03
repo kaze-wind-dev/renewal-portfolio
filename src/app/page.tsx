@@ -13,9 +13,11 @@ export default async function Home() {
     order: "latest",
   });
   return (
-    <TopPageClient 
-    works={works}
-    zennArticlesData={zennArticlesData}
-    />
+    <main>
+      <TopPageClient 
+      works={works}
+      zennArticlesData={zennArticlesData}
+      />
+    </main>
   );  
 }
