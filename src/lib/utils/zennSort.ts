@@ -1,9 +1,10 @@
 import type { ZennArticle } from "@/types/zenn";
+import type { Order } from "@/types/zenn";
 
 export type ZennSortArticlesProps = {
   articles: ZennArticle[];
   sortKey: keyof ZennArticle;
-  order?: "asc" | "desc";
+  order?: Order;
   searchQuery?: string;
 };
 
@@ -13,30 +14,39 @@ export function sortArticles({
   order = "desc",
   searchQuery,
 }: ZennSortArticlesProps) {
-  const filteredArticles = searchQuery
-    ? [...articles].filter((articles) =>
-        articles.title.toLowerCase().includes(searchQuery.toLowerCase())
-      )
-    : articles;
-  const sortedArticles = [...filteredArticles].sort((a, b) => {
+  const filteredArticles = filterArticles(articles, searchQuery);
+  return sortArticlesByKey(filteredArticles, sortKey, order);
+}
+
+function filterArticles(articles: ZennArticle[], searchQuery?: string) {
+  if (!searchQuery) return articles;
+  return articles.filter((articles) =>
+    articles.title.toLowerCase().includes(searchQuery.toLowerCase())
+  );
+}
+
+function sortArticlesByKey(
+  articles: ZennArticle[],
+  sortKey: keyof ZennArticle,
+  order = "desc" as Order
+) {
+  return [...articles].sort((a, b) => {
     const aValue = a[sortKey];
     const bValue = b[sortKey];
     if (typeof aValue === "number" && typeof bValue === "number") {
-      if (order === "asc") {
-        return aValue - bValue;
-      } else {
-        return bValue - aValue;
-      }
+      return sortNumberKey(aValue, bValue, order);
     }
     if (typeof aValue === "string" && typeof bValue === "string") {
-      if (order === "asc") {
-        return aValue.localeCompare(bValue);
-      } else {
-        return bValue.localeCompare(aValue);
-      }
+      return sortStringKey(aValue, bValue, order);
     }
     return 0;
   });
+}
 
-  return sortedArticles;
+function sortNumberKey(a: number, b: number, order: Order) {
+  return order === "asc" ? a - b : b - a;
+}
+
+function sortStringKey(a: string, b: string, order: Order) {
+  return order === "asc" ? a.localeCompare(b) : b.localeCompare(a);
 }
