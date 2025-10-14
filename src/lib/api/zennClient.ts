@@ -1,8 +1,12 @@
-import type { ZennQueries } from "@/types/zenn";
+import type { ZennQueries, ZennArticleList } from "@/types/zenn";
 function zennAPIClient(username: string) {
   async function get(queries?: ZennQueries | null) {
     try {
-      const queryString = queries ? `&${Object.entries(queries).map(([key, value]) => `${key}=${value}`).join("&")}` : "";
+      const queryString = queries
+        ? `&${Object.entries(queries)
+            .map(([key, value]) => `${key}=${value}`)
+            .join("&")}`
+        : "";
       const response = await fetch(
         `https://zenn.dev/api/articles?username=${username}${queryString}`,
         {
@@ -14,17 +18,17 @@ function zennAPIClient(username: string) {
         }
       );
       if (!response.ok) {
+        console.error("接続エラーが発生しました:", response.status);
         throw new Error("接続エラーが発生しました");
       }
-      return response.json();
+      return response.json() as unknown | ZennArticleList;
     } catch (error: unknown) {
-      if (error) {
         const message =
           error instanceof Error
             ? `APIリクエスト中にエラーが発生しました: ${error.message}`
             : "APIリクエスト中にエラーが発生しました。";
+        console.error(message);
         throw new Error(message);
-      }
     }
   }
   return {
